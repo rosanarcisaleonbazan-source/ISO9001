@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapa de Procesos — ISO 9001:2015</title>
+<link href="https://fonts.googleapis.com/css2?family=Salsa&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rosa-pastel: #FFB3D9;
+  --rosa-claro: #FFD4E5;
+  --azul-pastel: #B3E5FC;
+  --azul-claro: #D1F0FF;
+  --verde-pastel: #B3F5D1;
+  --morado-pastel: #E1BEE7;
+  --morado-claro: #F0D9F5;
+  --gris-oscuro: #4a5568;
+  --white: #ffffff;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #F0F8FF 0%, #FFF0F6 100%);
+  color: var(--gris-oscuro);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 28px;
+  box-shadow: 0 15px 40px rgba(0,0,0,.1);
+  overflow: hidden;
+}
+
+/* Header con botón Inicio */
+.header {
+  background: linear-gradient(135deg, var(--rosa-pastel), var(--morado-pastel));
+  padding: 25px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+.header h1 {
+  font-family: 'Salsa', cursive;
+  font-size: 32px;
+  font-weight: 400;
+}
+.btn-inicio {
+  background: white;
+  color: var(--gris-oscuro);
+  padding: 12px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,.1);
+  transition: all 0.3s;
+}
+.btn-inicio:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
+}
+
+/* Contenido */
+.content {
+  padding: 50px 40px;
+  text-align: center;
+}
+
+.title {
+  font-family: 'Salsa', cursive;
+  font-size: 42px;
+  color: var(--gris-oscuro);
+  margin-bottom: 12px;
+}
+.subtitle {
+  font-size: 18px;
+  color: #718096;
+  max-width: 700px;
+  margin: 0 auto 50px;
+}
+
+/* El Mapa */
+.mapa {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #f8f9fa;
+  border: 3px dashed #e2e8f0;
+  border-radius: 24px;
+  padding: 40px 30px;
+  overflow: hidden;
+}
+
+/* Procesos Estratégicos (arriba) */
+.estrategicos {
+  background: var(--morado-claro);
+  padding: 25px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  border: 3px solid var(--morado-pastel);
+}
+.estrategicos h3 {
+  font-family: 'Salsa', cursive;
+  color: #6b4e9e;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+.grid-estrategicos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+/* Procesos Operativos (centro) */
+.operativos {
+  background: linear-gradient(135deg, var(--azul-claro), var(--verde-claro));
+  padding: 35px 25px;
+  border-radius: 24px;
+  margin-bottom: 40px;
+  position: relative;
+}
+.operativos h3 {
+  font-family: 'Salsa', cursive;
+  color: #2c7a7b;
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+.operativos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+}
+.proceso-op {
+  background: white;
+  padding: 18px 24px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.08);
+  min-width: 180px;
+  font-weight: 600;
+  border-top: 6px solid var(--verde-pastel);
+}
+
+/* Procesos de Apoyo (abajo) */
+.apoyo {
+  background: var(--rosa-claro);
+  padding: 25px;
+  border-radius: 20px;
+  border: 3px solid var(--rosa-pastel);
+}
+.apoyo h3 {
+  font-family: 'Salsa', cursive;
+  color: #c05621;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+.grid-apoyo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+/* Flechas y conexiones (simuladas con CSS) */
+.flecha {
+  font-size: 28px;
+  color: #a0aec0;
+  margin: 10px 0;
+}
+
+/* Tarjetas pequeñas */
+.tarjeta {
+  background: white;
+  padding: 14px 18px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.06);
+  text-align: left;
+  font-size: 14.5px;
+}
+.tarjeta strong {
+  color: var(--gris-oscuro);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header { flex-direction: column; gap: 15px; text-align: center; }
+  .title { font-size: 34px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>🏆 ISO 9001:2015</h1>
+    <a href="index.html" class="btn-inicio">← Volver al Inicio</a>
+  </div>
+
+  <div class="content">
+    <h2 class="title">Mapa de Procesos</h2>
+    <p class="subtitle">Visualiza la interacción entre procesos estratégicos, operativos y de apoyo<br>
+    <strong>Enfoque basado en procesos • Entradas y salidas claras • Dueños de proceso</strong></p>
+
+    <div class="mapa">
+
+      <!-- Procesos Estratégicos -->
+      <div class="estrategicos">
+        <h3>Procesos Estratégicos (Gestión)</h3>
+        <div class="grid-estrategicos">
+          <div class="tarjeta">📍 Determinación del contexto de la organización</div>
+          <div class="tarjeta">👑 Liderazgo y compromiso de la dirección</div>
+          <div class="tarjeta">🎯 Planificación (riesgos, oportunidades y objetivos)</div>
+          <div class="tarjeta">📊 Revisión por la dirección</div>
+        </div>
+      </div>
+
+      <div class="flecha">↓ Entradas desde clientes y partes interesadas ↓</div>
+
+      <!-- Procesos Operativos -->
+      <div class="operativos">
+        <h3>Procesos Operativos (Núcleo del Negocio)</h3>
+        <div class="operativos-grid">
+          <div class="proceso-op">1. Captación y análisis de requisitos del cliente</div>
+          <div class="proceso-op">2. Diseño y desarrollo</div>
+          <div class="proceso-op">3. Compras y control de proveedores</div>
+          <div class="proceso-op">4. Producción / Prestación del servicio</div>
+          <div class="proceso-op">5. Entrega y post-venta</div>
+        </div>
+      </div>
+
+      <div class="flecha">↑ Salidas hacia el cliente (producto / servicio conforme) ↑</div>
+
+      <!-- Procesos de Apoyo -->
+      <div class="apoyo">
+        <h3>Procesos de Apoyo</h3>
+        <div class="grid-apoyo">
+          <div class="tarjeta">👥 Gestión de recursos humanos y competencia</div>
+          <div class="tarjeta">🏗️ Infraestructura y ambiente de trabajo</div>
+          <div class="tarjeta">📄 Control de información documentada</div>
+          <div class="tarjeta">📏 Monitoreo y medición</div>
+          <div class="tarjeta">🔧 Mantenimiento y calibración</div>
+          <div class="tarjeta">📈 Gestión de no conformidades y acciones correctivas</div>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="margin-top:40px; font-size:15px; color:#718096;">
+      Este mapa muestra cómo todos los procesos interactúan para lograr la satisfacción del cliente y la mejora continua según la norma ISO 9001:2015.
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>
