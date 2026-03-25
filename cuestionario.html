@@ -4,52 +4,203 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cuestionario de Autoevaluación — ISO 9001:2015</title>
-<link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --primary: #9b7ed9;          /* Morado pastel principal */
-    --primary-dark: #6f4e9c;     /* MOrad más oscuro para texto */
-    --light-bg: #e8d9f5;         /* Fondo blanco */
-    --b50:#e6f1fb;--b400:#378add;--b800:#0c447c;
-    --g50:#eaf3de;--g400:#639922;--g600:#3b6d11;
-    --a50:#faeeda;--a200:#ef9f27;--a400:#ba7517;
-    --r50:#fcebeb;--r400:#e24b4a;--r800:#501313;
-    --gray50:#f1efe8;--gray100:#d3d1c7;--gray400:#888780;--gray600:#5f5e5a;
-    --white:#ffffff;--text:#2c2c2a;--text2:#5f5e5a;--text3:#888780;
-    --border:#d3d1c7;--shadow:0 2px 8px rgba(0,0,0,.08);
+    --primary: #2e7d32;
+    --primary-dark: #1b5e20;
+    --light-bg: #f8f9f8;
+    --white: #ffffff;
+    --text: #212529;
+    --border: #d1d5db;
+    --shadow: 0 2px 8px rgba(0,0,0,.08);
+    --g50: #e8f5e9; --g400: #4caf50;
+    --a50: #fff3e0; --a400: #ff9800;
+    --r50: #ffebee; --r400: #f44336;
+    --gray50: #f5f5f5;
   }
-  *{box-sizing:border-box;margin:0;padding:0;min-width:0}
-  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--gray50);color:var(--text);min-height:100vh;padding:0 0 60px}
-
-  .header{background:var(--b800);padding:28px 40px 24px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.15)}
-  .header-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-  .header-left{display:flex;align-items:center;gap:14px}
-  .badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:600;color:#b5d4f4}
-  .header h1{font-size:20px;font-weight:600;color:#e6f1fb;line-height:1.2}
-  .header p{font-size:12px;color:#b5d4f4;margin-top:2px}
-  .btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;border:none;transition:all .15s}
-  .btn-primary{background:var(--white);color:var(--b800)}
-  .btn-primary:hover{background:#f0f4fa;transform:translateY(-1px);box-shadow:var(--shadow)}
-  .btn-secondary{background:rgba(255,255,255,.12);color:#b5d4f4;border:1px solid rgba(255,255,255,.25)}
-
-  .progress-bar{background:var(--b800);padding:12px 40px}
-  .progress-fill{height:6px;background:#b5d4f4;border-radius:3px;transition:width .4s ease}
-
-  .main{max-width:900px;margin:28px auto 0;padding:0 20px}
-  .score-section,.section{background:var(--white);border-radius:14px;padding:24px 28px;margin-bottom:24px;border:1px solid var(--border);box-shadow:var(--shadow)}
-  .score-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-  .score-metric{text-align:center;padding:14px;background:var(--gray50);border-radius:10px}
-  .score-metric .val{font-size:26px;font-weight:700}
-  .question-card{border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:12px}
-  .radio-opt{display:flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--border);border-radius:7px;cursor:pointer;font-size:12.5px}
-  .radio-opt.sel-C{background:var(--g50);border-color:var(--g400);color:var(--g800)}
-  .radio-opt.sel-P{background:var(--a50);border-color:var(--a200);color:var(--a800)}
-  .radio-opt.sel-NC{background:var(--r50);border-color:var(--r400);color:var(--r800)}
-  .radio-opt.sel-NA{background:var(--gray50);border-color:var(--gray400)}
-  .q-notes{min-height:62px}
-
-  .legend{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px;padding:12px 16px;background:var(--white);border-radius:10px;border:1px solid var(--border)}
-  #results-panel{display:none}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--light-bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding-bottom: 60px;
+  }
+  .header {
+    background: var(--primary-dark);
+    padding: 20px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .badge {
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 9999px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #c8e6c9;
+  }
+  .header h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: white;
+    line-height: 1.3;
+  }
+  .header p {
+    font-size: 13px;
+    color: #c8e6c9;
+    margin-top: 2px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all .2s;
+  }
+  .btn-secondary {
+    background: rgba(255,255,255,.15);
+    color: white;
+    border: 1px solid rgba(255,255,255,.25);
+  }
+  .btn-primary {
+    background: white;
+    color: var(--primary-dark);
+    font-weight: 600;
+  }
+  .main {
+    max-width: 1100px;
+    margin: 30px auto 0;
+    padding: 0 20px;
+  }
+  .score-section {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  .score-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+  }
+  .score-metric {
+    text-align: center;
+    padding: 16px;
+    background: #f8f9f8;
+    border-radius: 10px;
+  }
+  .score-metric .val {
+    font-size: 28px;
+    font-weight: 700;
+  }
+  #overall-pct {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .section {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  .section-icon {
+    font-size: 28px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8f5e9;
+    border-radius: 10px;
+  }
+  .question-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+    background: white;
+  }
+  .q-header {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .q-num {
+    font-weight: 600;
+    color: var(--primary);
+    min-width: 60px;
+  }
+  .q-text {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .radio-opt {
+    padding: 10px 18px;
+    border: 1px solid var(--border);
+    border-radius: 9999px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .2s;
+    background: white;
+  }
+  .radio-opt:hover { background: #f8f9f8; }
+  .radio-opt input { display: none; }
+  .radio-opt.sel-C { background: var(--g50); border-color: var(--g400); color: #2e7d32; }
+  .radio-opt.sel-P { background: var(--a50); border-color: var(--a400); color: #e65100; }
+  .radio-opt.sel-NC { background: var(--r50); border-color: var(--r400); color: #c62828; }
+  .radio-opt.sel-NA { background: var(--gray50); border-color: #9e9e9e; color: #616161; }
+  .q-notes {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    resize: vertical;
+  }
 </style>
 </head>
 <body>
@@ -63,7 +214,7 @@
         <p>Simulación para cualquier empresa • Cláusulas 4 a 10</p>
       </div>
     </div>
-    <div class="header-actions">
+    <div>
       <button class="btn btn-secondary" onclick="resetAll()">↺ Reiniciar</button>
       <button class="btn btn-primary" onclick="generateResults()">📋 Ver resultados</button>
       <button class="btn btn-primary" onclick="window.print()">🖨 Imprimir / PDF</button>
@@ -71,52 +222,24 @@
   </div>
 </div>
 
-<div class="progress-bar">
-  <div style="max-width:900px;margin:0 auto">
-    <div class="progress-track" style="background:rgba(255,255,255,.2);height:6px;border-radius:3px;overflow:hidden">
-      <div class="progress-fill" id="prog-fill" style="width:0%"></div>
-    </div>
-    <div style="text-align:right;margin-top:4px;font-size:12px;color:#b5d4f4" id="prog-label">0 / 40 respondidas</div>
-  </div>
-</div>
-
 <div class="main">
-  <!-- Score Card -->
+  <!-- Resumen de cumplimiento -->
   <div class="score-section">
-    <h2 style="font-size:15px;font-weight:600;margin-bottom:8px">Resumen de cumplimiento</h2>
+    <h2 style="font-size:16px;font-weight:600;margin-bottom:12px">Resumen de cumplimiento</h2>
     <div class="score-grid">
-      <div class="score-metric"><div class="val" id="cnt-c" style="color:var(--g600)">0</div><div style="font-size:11px;color:var(--text2)">Conforme</div></div>
-      <div class="score-metric"><div class="val" id="cnt-p" style="color:var(--a400)">0</div><div style="font-size:11px;color:var(--text2)">Parcialmente</div></div>
-      <div class="score-metric"><div class="val" id="cnt-nc" style="color:var(--r400)">0</div><div style="font-size:11px;color:var(--text2)">No conforme</div></div>
-      <div class="score-metric"><div class="val" id="cnt-na" style="color:var(--gray400)">0</div><div style="font-size:11px;color:var(--text2)">No aplica</div></div>
+      <div class="score-metric"><div class="val" id="cnt-c" style="color:#2e7d32">0</div><div style="font-size:13px;color:#555">Conforme</div></div>
+      <div class="score-metric"><div class="val" id="cnt-p" style="color:#ff9800">0</div><div style="font-size:13px;color:#555">Parcialmente</div></div>
+      <div class="score-metric"><div class="val" id="cnt-nc" style="color:#f44336">0</div><div style="font-size:13px;color:#555">No conforme</div></div>
+      <div class="score-metric"><div class="val" id="cnt-na" style="color:#757575">0</div><div style="font-size:13px;color:#555">No aplica</div></div>
     </div>
-    <div id="overall-pct" style="font-size:32px;font-weight:700;margin-top:16px;text-align:center;color:var(--b800)">— %</div>
+    <div id="overall-pct" style="font-size:36px;font-weight:700;text-align:center;color:#2e7d32;margin-top:20px">— %</div>
   </div>
-
-  <!-- Leyenda -->
-  <div class="legend">
-    <strong>Leyenda:</strong>
-    <div>C — Conforme (evidencia completa)</div>
-    <div>PC — Parcialmente conforme</div>
-    <div>NC — No conforme</div>
-    <div>NA — No aplica</div>
-  </div>
-
-  <!-- Panel de resultados -->
-  <div id="results-panel" class="score-section">
-    <h2>Informe de Resultados</h2>
-    <p id="results-date" style="color:var(--text2);font-size:12px"></p>
-    <div id="results-body"></div>
-  </div>
-
-  <!-- Las 7 secciones se generan automáticamente -->
 </div>
 
 <script>
-// === CONFIGURACIÓN ===
 const TOTAL = 40;
 const state = {};
-const QLABELS = { /* 40 preguntas reales y neutrales */ 
+const QLABELS = {
   1:"¿La organización ha identificado los factores internos y externos que afectan al SGC?",
   2:"¿Se revisa periódicamente el contexto de la organización?",
   3:"¿Se han identificado las partes interesadas relevantes y sus requisitos?",
@@ -169,29 +292,25 @@ const sections = [
   {id:"sec10",title:"10. Mejora", icon:"🔄", count:4, start:37}
 ];
 
-// === FUNCIONES ===
 function init() {
   sections.forEach(sec => {
     const secHTML = `
       <div class="section" id="${sec.id}">
         <div class="section-header" onclick="toggleSection('${sec.id}')">
-          <div class="section-icon" style="background:#e6f1fb">${sec.icon}</div>
-          <div class="section-title">
-            <h2>${sec.title}</h2>
-            <p>Cláusula ${sec.id.replace('sec','')}</p>
+          <div class="section-icon">${sec.icon}</div>
+          <div>
+            <h2 style="font-size:18px">${sec.title}</h2>
+            <p style="color:#666;font-size:14px">Cláusula ${sec.id.replace('sec','')}</p>
           </div>
-          <span class="section-badge" style="background:var(--b50);color:var(--b800)">${sec.count} preguntas</span>
-          <span class="section-chevron ${sec.id==='sec4'?'open':''}" id="chev-${sec.id}">▼</span>
+          <div style="margin-left:auto;background:#e8f5e9;color:#2e7d32;padding:4px 12px;border-radius:9999px;font-size:13px;font-weight:500">${sec.count} preguntas</div>
         </div>
-        <div class="section-body ${sec.id==='sec4'?'open':''}" id="body-${sec.id}"></div>
+        <div id="body-${sec.id}"></div>
       </div>`;
-    
     document.querySelector('.main').insertAdjacentHTML('beforeend', secHTML);
-
     const body = document.getElementById(`body-${sec.id}`);
+
     for (let i = sec.start; i < sec.start + sec.count; i++) {
       state[i] = {val: null, note: ''};
-
       const card = document.createElement('div');
       card.className = 'question-card';
       card.id = `qc-${i}`;
@@ -200,12 +319,9 @@ function init() {
           <span class="q-num">${sec.id.replace('sec','')}.${String(i-sec.start+1).padStart(2,'0')}</span>
           <div class="q-text">${QLABELS[i]}</div>
         </div>
-        <div class="q-body">
-          <div class="radio-group" id="rg-${i}"></div>
-          <textarea class="q-notes" id="note-${i}" placeholder="Observaciones, evidencias encontradas o acciones correctivas..."></textarea>
-        </div>`;
+        <div class="radio-group" id="rg-${i}"></div>
+        <textarea class="q-notes" id="note-${i}" placeholder="Observaciones, evidencias encontradas o acciones correctivas..."></textarea>`;
       body.appendChild(card);
-
       buildRadios(i);
       document.getElementById(`note-${i}`).addEventListener('input', e => state[i].note = e.target.value);
     }
@@ -234,11 +350,6 @@ function selectOpt(n, val, rg) {
   rg.querySelectorAll('.radio-opt').forEach(l => l.classList.remove('sel-C','sel-P','sel-NC','sel-NA'));
   const selected = Array.from(rg.children).find(l => l.querySelector('input').value === val);
   if (selected) selected.classList.add(`sel-${val}`);
-
-  const card = document.getElementById(`qc-${n}`);
-  card.classList.remove('status-c','status-p','status-nc','status-na');
-  card.classList.add(val === 'C' ? 'status-c' : val === 'P' ? 'status-p' : val === 'NC' ? 'status-nc' : 'status-na');
-
   updateScore();
 }
 
@@ -253,51 +364,45 @@ function updateScore() {
       else if (state[i].val === 'NA') na++;
     }
   }
-
   document.getElementById('cnt-c').textContent = c;
   document.getElementById('cnt-p').textContent = p;
   document.getElementById('cnt-nc').textContent = nc;
   document.getElementById('cnt-na').textContent = na;
 
-  const prog = (answered / TOTAL * 100).toFixed(0);
-  document.getElementById('prog-fill').style.width = prog + '%';
-  document.getElementById('prog-label').textContent = `${answered} / ${TOTAL} respondidas`;
-
   const evaluated = answered - na;
   const pct = evaluated > 0 ? Math.round((c / evaluated) * 100) : 0;
   document.getElementById('overall-pct').textContent = pct + ' %';
-  document.getElementById('overall-pct').style.color = pct >= 75 ? 'var(--g600)' : pct >= 50 ? 'var(--a400)' : 'var(--r400)';
+  document.getElementById('overall-pct').style.color = pct >= 75 ? '#2e7d32' : pct >= 50 ? '#ff9800' : '#f44336';
 }
 
 function toggleSection(id) {
   const body = document.getElementById('body-'+id);
-  const chev = document.getElementById('chev-'+id);
-  body.classList.toggle('open');
-  chev.classList.toggle('open');
+  body.style.display = body.style.display === 'none' ? 'block' : 'none';
 }
 
 function generateResults() {
-  const panel = document.getElementById('results-panel');
-  const body = document.getElementById('results-body');
-  document.getElementById('results-date').textContent = 'Generado el ' + new Date().toLocaleDateString('es-ES');
+  let html = '<h2 style="margin:20px 0 15px">Informe de Resultados</h2>';
+  html += '<p style="color:#666;font-size:14px">Generado el ' + new Date().toLocaleDateString('es-ES') + '</p>';
 
-  let html = '';
   ['NC','P','C'].forEach(status => {
     const list = Object.keys(state).filter(i => state[i].val === status);
     if (list.length === 0) return;
     const title = status==='NC' ? '❌ No conformidades' : status==='P' ? '⚠️ Parcialmente conformes' : '✅ Conformidades';
-    const color = status==='NC' ? 'var(--r800)' : status==='P' ? 'var(--a800)' : 'var(--g600)';
-    html += `<h3 style="color:${color};margin:20px 0 10px">${title} (${list.length})</h3>`;
+    const color = status==='NC' ? '#c62828' : status==='P' ? '#e65100' : '#2e7d32';
+    html += `<h3 style="color:${color};margin:25px 0 10px">${title} (${list.length})</h3>`;
     list.forEach(i => {
-      const note = state[i].note ? `<div style="font-size:12px;color:#666;margin-top:4px">Nota: ${state[i].note}</div>` : '';
-      html += `<div style="padding:10px;background:#f9f9f9;border-left:4px solid ${status==='NC'?'#e24b4a':status==='P'?'#ef9f27':'#639922'};margin-bottom:8px">
+      const note = state[i].note ? `<div style="font-size:13px;color:#555;margin-top:6px">Nota: ${state[i].note}</div>` : '';
+      html += `<div style="padding:14px;background:#f9f9f9;border-left:4px solid ${color};margin-bottom:10px;border-radius:6px">
         <strong>Pregunta ${i}</strong><br>${QLABELS[i]}${note}
       </div>`;
     });
   });
 
-  body.innerHTML = html || '<p style="text-align:center;padding:40px;color:#888">Responde las preguntas para ver el informe.</p>';
-  panel.style.display = 'block';
+  const panel = document.createElement('div');
+  panel.className = 'score-section';
+  panel.style.marginTop = '30px';
+  panel.innerHTML = html || '<p style="text-align:center;padding:40px;color:#888">Responde las preguntas para ver el informe.</p>';
+  document.querySelector('.main').appendChild(panel);
   panel.scrollIntoView({behavior:'smooth'});
 }
 
