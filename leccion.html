@@ -169,335 +169,197 @@ const levelsConfig = [
   { name: "Avanzado", count: 100 }
 ];
 
-// ==================== PEGA TUS PREGUNTAS AQUÍ ====================
-
+// ==================== PREGUNTAS ====================
 const allQuestions = {
-  // ==================== NIVEL BÁSICO (25 preguntas) ====================
-  0: [
-   {id:1, type:"tf", q:"La ISO 9001:2015 es una norma certificable para Sistemas de Gestión de la Calidad.", correct:true, expl:"Verdadero. Es la norma internacional certificable."},
-
-  {id:2, type:"mcq", q:"¿Qué significa SGC?", options:["Sistema General de Control","Sistema de Gestión de la Calidad","Sistema de Gestión Comercial","Sistema Global de Calidad"], correct:1, expl:"Sistema de Gestión de la Calidad."},
-
-  {id:3, type:"fill", q:"El enfoque principal de la ISO 9001 es el ______.", correct:"cliente", expl:"El enfoque al cliente es el principio principal."},
-
-  {id:4, type:"case", q:"Caso: Una empresa no identifica factores externos que afectan su sistema. ¿Cumple?", options:["Sí","No, incumple cláusula 4.1","Solo si es pequeña","Depende del cliente"], correct:1, expl:"No cumple con el contexto de la organización."},
-
-  {id:5, type:"tf", q:"La mejora continua es un requisito de la ISO 9001.", correct:true, expl:"Verdadero (cláusula 10)."},
-
-  {id:6, type:"mcq", q:"¿Qué cláusula corresponde al liderazgo?", options:["Cláusula 4","Cláusula 5","Cláusula 6","Cláusula 7"], correct:1, expl:"Cláusula 5 — Liderazgo."},
-
-  {id:7, type:"fill", q:"La política de calidad debe estar ______.", correct:"documentada", expl:"Debe estar documentada y comunicada."},
-
-  {id:8, type:"tf", q:"Las auditorías internas son opcionales en ISO 9001.", correct:false, expl:"Falso. Son obligatorias (cláusula 9.2)."},
-
-  {id:9, type:"case", q:"Caso: La empresa tiene política de calidad pero nadie la conoce. ¿Es conforme?", options:["Sí","No, incumple cláusula 7.3","Solo si es nueva","Depende"], correct:1, expl:"No es conforme, falta comunicación."},
-
-  {id:10, type:"mcq", q:"¿Cuál es el ciclo de mejora continua?", options:["DMAIC","PDCA","SWOT","LEAN"], correct:1, expl:"PDCA (Plan-Do-Check-Act)."},
-
-  {id:11, type:"fill", q:"Los procesos deben ser ______ y controlados.", correct:"planificados", expl:"Planificados según ISO 9001."},
-
-  {id:12, type:"tf", q:"La ISO 9001 aplica solo a empresas industriales.", correct:false, expl:"Falso. Aplica a cualquier organización."},
-
-  {id:13, type:"mcq", q:"¿Qué se debe controlar en el SGC?", options:["Solo productos","Solo personal","Documentos e información","Solo ventas"], correct:2, expl:"Información documentada (cláusula 7.5)."},
-
-  {id:14, type:"case", q:"Caso: No se realiza auditoría interna. ¿Cumple?", options:["Sí","No (cláusula 9.2)","Solo si no hay fallas","Depende"], correct:1, expl:"No cumple ISO 9001."},
-
-  {id:15, type:"tf", q:"La alta dirección debe participar en el SGC.", correct:true, expl:"Verdadero (cláusula 5)."},
-
-  {id:16, type:"fill", q:"Los registros sirven como ______ de conformidad.", correct:"evidencia", expl:"Evidencia del cumplimiento."},
-
-  {id:17, type:"mcq", q:"¿Qué cláusula trata la planificación?", options:["Cláusula 5","Cláusula 6","Cláusula 7","Cláusula 8"], correct:1, expl:"Cláusula 6."},
-
-  {id:18, type:"tf", q:"El enfoque basado en riesgos es obligatorio.", correct:true, expl:"Verdadero."},
-
-  {id:19, type:"case", q:"Caso: No se gestionan riesgos. ¿Cumple?", options:["Sí","No (cláusula 6.1)","Solo si no hay problemas","Depende"], correct:1, expl:"No cumple planificación."},
-
-  {id:20, type:"mcq", q:"¿Qué cláusula trata la operación?", options:["Cláusula 6","Cláusula 7","Cláusula 8","Cláusula 9"], correct:2, expl:"Cláusula 8 — Operación."},
-
-  {id:21, type:"fill", q:"La mejora continua está en la cláusula ______.", correct:"10", expl:"Cláusula 10 — Mejora."},
-
-  {id:22, type:"tf", q:"Los proveedores no afectan el SGC.", correct:false, expl:"Falso. Son parte importante (cláusula 8.4)."},
-
-  {id:23, type:"case", q:"Caso: Un proveedor entrega producto defectuoso y no se evalúa. ¿Cumple?", options:["Sí","No (cláusula 8.4)","Solo si es barato","Depende"], correct:1, expl:"Debe evaluarse al proveedor."},
-
-  {id:24, type:"mcq", q:"¿Qué cláusula trata la evaluación del desempeño?", options:["Cláusula 7","Cláusula 8","Cláusula 9","Cláusula 10"], correct:2, expl:"Cláusula 9."},
-
-  {id:25, type:"case", q:"Caso: No se mide la satisfacción del cliente. ¿Cumple?", options:["Sí","No (cláusula 9.1.2)","Solo si no hay quejas","Depende"], correct:1, expl:"Debe medirse la satisfacción del cliente."}
-
+  0: [  // Nivel Básico - 25 preguntas (las que me enviaste)
+    {id:1, type:"tf", q:"La ISO 9001:2015 es una norma certificable para Sistemas de Gestión de la Calidad.", correct:true, expl:"Verdadero. Es la norma internacional certificable."},
+    {id:2, type:"mcq", q:"¿Qué significa SGC?", options:["Sistema General de Control","Sistema de Gestión de la Calidad","Sistema de Gestión Comercial","Sistema Global de Calidad"], correct:1, expl:"Sistema de Gestión de la Calidad."},
+    {id:3, type:"fill", q:"El enfoque principal de la ISO 9001 es el ______.", correct:"cliente", expl:"El enfoque al cliente es el principio principal."},
+    {id:4, type:"case", q:"Caso: Una empresa no identifica factores externos que afectan su sistema. ¿Cumple?", options:["Sí","No, incumple cláusula 4.1","Solo si es pequeña","Depende del cliente"], correct:1, expl:"No cumple con el contexto de la organización."},
+    {id:5, type:"tf", q:"La mejora continua es un requisito de la ISO 9001.", correct:true, expl:"Verdadero (cláusula 10)."},
+    {id:6, type:"mcq", q:"¿Qué cláusula corresponde al liderazgo?", options:["Cláusula 4","Cláusula 5","Cláusula 6","Cláusula 7"], correct:1, expl:"Cláusula 5 — Liderazgo."},
+    {id:7, type:"fill", q:"La política de calidad debe estar ______.", correct:"documentada", expl:"Debe estar documentada y comunicada."},
+    {id:8, type:"tf", q:"Las auditorías internas son opcionales en ISO 9001.", correct:false, expl:"Falso. Son obligatorias (cláusula 9.2)."},
+    {id:9, type:"case", q:"Caso: La empresa tiene política de calidad pero nadie la conoce. ¿Es conforme?", options:["Sí","No, incumple cláusula 7.3","Solo si es nueva","Depende"], correct:1, expl:"No es conforme, falta comunicación."},
+    {id:10, type:"mcq", q:"¿Cuál es el ciclo de mejora continua?", options:["DMAIC","PDCA","SWOT","LEAN"], correct:1, expl:"PDCA (Plan-Do-Check-Act)."},
+    {id:11, type:"fill", q:"Los procesos deben ser ______ y controlados.", correct:"planificados", expl:"Planificados según ISO 9001."},
+    {id:12, type:"tf", q:"La ISO 9001 aplica solo a empresas industriales.", correct:false, expl:"Falso. Aplica a cualquier organización."},
+    {id:13, type:"mcq", q:"¿Qué se debe controlar en el SGC?", options:["Solo productos","Solo personal","Documentos e información","Solo ventas"], correct:2, expl:"Información documentada (cláusula 7.5)."},
+    {id:14, type:"case", q:"Caso: No se realiza auditoría interna. ¿Cumple?", options:["Sí","No (cláusula 9.2)","Solo si no hay fallas","Depende"], correct:1, expl:"No cumple ISO 9001."},
+    {id:15, type:"tf", q:"La alta dirección debe participar en el SGC.", correct:true, expl:"Verdadero (cláusula 5)."},
+    {id:16, type:"fill", q:"Los registros sirven como ______ de conformidad.", correct:"evidencia", expl:"Evidencia del cumplimiento."},
+    {id:17, type:"mcq", q:"¿Qué cláusula trata la planificación?", options:["Cláusula 5","Cláusula 6","Cláusula 7","Cláusula 8"], correct:1, expl:"Cláusula 6."},
+    {id:18, type:"tf", q:"El enfoque basado en riesgos es obligatorio.", correct:true, expl:"Verdadero."},
+    {id:19, type:"case", q:"Caso: No se gestionan riesgos. ¿Cumple?", options:["Sí","No (cláusula 6.1)","Solo si no hay problemas","Depende"], correct:1, expl:"No cumple planificación."},
+    {id:20, type:"mcq", q:"¿Qué cláusula trata la operación?", options:["Cláusula 6","Cláusula 7","Cláusula 8","Cláusula 9"], correct:2, expl:"Cláusula 8 — Operación."},
+    {id:21, type:"fill", q:"La mejora continua está en la cláusula ______.", correct:"10", expl:"Cláusula 10 — Mejora."},
+    {id:22, type:"tf", q:"Los proveedores no afectan el SGC.", correct:false, expl:"Falso. Son parte importante (cláusula 8.4)."},
+    {id:23, type:"case", q:"Caso: Un proveedor entrega producto defectuoso y no se evalúa. ¿Cumple?", options:["Sí","No (cláusula 8.4)","Solo si es barato","Depende"], correct:1, expl:"Debe evaluarse al proveedor."},
+    {id:24, type:"mcq", q:"¿Qué cláusula trata la evaluación del desempeño?", options:["Cláusula 7","Cláusula 8","Cláusula 9","Cláusula 10"], correct:2, expl:"Cláusula 9."},
+    {id:25, type:"case", q:"Caso: No se mide la satisfacción del cliente. ¿Cumple?", options:["Sí","No (cláusula 9.1.2)","Solo si no hay quejas","Depende"], correct:1, expl:"Debe medirse la satisfacción del cliente."}
   ],
 
-  // ==================== NIVEL INTERMEDIO (50 preguntas) ====================
-  1: [
-   {id:01, type:"tf", q:"La cláusula 4.1 exige identificar factores internos y externos del SGC.", correct:true, expl:"Verdadero."},
-  {id:02, type:"mcq", q:"¿Qué establece la cláusula 4.2?", options:["Auditorías","Partes interesadas","Producción","Mejora"], correct:1, expl:"Partes interesadas."},
-  {id:03, type:"fill", q:"Las partes interesadas deben ser ______ y monitoreadas.", correct:"identificadas", expl:"Identificadas (cláusula 4.2)."},
-  {id:04, type:"case", q:"Caso: No se identifican partes interesadas. ¿Cumple?", options:["Sí","No (4.2)","Solo si es PYME","Depende"], correct:1, expl:"No cumple ISO."},
-  {id:05, type:"tf", q:"El alcance del SGC debe estar documentado.", correct:true, expl:"Verdadero (4.3)."},
-  {id:06, type:"mcq", q:"¿Qué incluye el alcance del SGC?", options:["Solo procesos","Productos y servicios","Solo clientes","Solo proveedores"], correct:1, expl:"Productos y servicios."},
-  {id:07, type:"fill", q:"Los procesos del SGC deben ser ______ y mejorados.", correct:"controlados", expl:"Controlados."},
-  {id:08, type:"case", q:"Caso: Procesos definidos pero no controlados. ¿Cumple?", options:["Sí","No","Depende","Solo si hay registros"], correct:1, expl:"No cumple."},
-  {id:09, type:"tf", q:"La alta dirección debe promover el enfoque al cliente.", correct:true, expl:"Verdadero."},
-  {id:10, type:"mcq", q:"¿Qué incluye el liderazgo?", options:["Solo supervisión","Compromiso y dirección","Solo control","Solo auditorías"], correct:1, expl:"Compromiso y liderazgo."},
-  {id:11, type:"fill", q:"La dirección debe asignar ______ y responsabilidades.", correct:"autoridades", expl:"Autoridades claras."},
-  {id:12, type:"case", q:"Caso: No hay responsabilidades claras. ¿Cumple?", options:["Sí","No","Depende","Solo si es pequeña"], correct:1, expl:"No cumple."},
-  {id:13, type:"tf", q:"Los objetivos de calidad deben ser medibles.", correct:true, expl:"Verdadero."},
-  {id:14, type:"mcq", q:"¿Qué se debe considerar en planificación?", options:["Costos","Riesgos y oportunidades","Clientes","Ventas"], correct:1, expl:"Riesgos y oportunidades."},
-  {id:15, type:"fill", q:"Los riesgos deben ser ______ y tratados.", correct:"evaluados", expl:"Evaluados."},
-  {id:16, type:"case", q:"Caso: No se evalúan riesgos. ¿Cumple?", options:["Sí","No (6.1)","Depende","Solo si hay fallas"], correct:1, expl:"No cumple."},
-  {id:17, type:"tf", q:"La infraestructura es parte de los recursos.", correct:true, expl:"Verdadero."},
-  {id:118, type:"mcq", q:"¿Qué es competencia?", options:["Capacidad demostrada","Solo experiencia","Solo títulos","Solo capacitación"], correct:0, expl:"Capacidad demostrada."},
-  {id:19, type:"fill", q:"El personal debe ser ______ para su función.", correct:"competente", expl:"Competente."},
-  {id:20, type:"case", q:"Caso: Personal sin capacitación. ¿Cumple?", options:["Sí","No (7.2)","Depende","Solo si aprende rápido"], correct:1, expl:"No cumple."},
-  {id:21, type:"tf", q:"La comunicación es parte del soporte.", correct:true, expl:"Verdadero (7.4)."},
-  {id:22, type:"mcq", q:"¿Qué debe controlarse?", options:["Solo dinero","Información documentada","Solo personas","Nada"], correct:1, expl:"Información documentada."},
-  {id:23, type:"fill", q:"Los documentos deben ser ______ y actualizados.", correct:"controlados", expl:"Controlados."},
-  {id:24, type:"case", q:"Caso: Documentos obsoletos en uso. ¿Cumple?", options:["Sí","No","Depende","Solo si son pocos"], correct:1, expl:"No cumple."},
-  {id:25, type:"tf", q:"La planificación operativa es parte de la cláusula 8.", correct:true, expl:"Verdadero."},
-  {id:26, type:"mcq", q:"¿Qué se revisa antes de aceptar pedidos?", options:["Precio","Requisitos del cliente","Proveedor","Tiempo"], correct:1, expl:"Requisitos del cliente."},
-  {id:27, type:"fill", q:"Los productos deben cumplir requisitos ______.", correct:"especificados", expl:"Especificados."},
-  {id:28, type:"case", q:"Caso: No se revisan requisitos del cliente. ¿Cumple?", options:["Sí","No","Depende","Solo si hay contrato"], correct:1, expl:"No cumple."},
-  {id:29, type:"tf", q:"El control de proveedores es obligatorio.", correct:true, expl:"Verdadero."},
-  {id:30, type:"mcq", q:"¿Qué hacer con proveedores?", options:["Ignorarlos","Evaluarlos","Solo pagar","Nada"], correct:1, expl:"Evaluarlos."},
-  {id:31, type:"fill", q:"Los proveedores deben ser ______ periódicamente.", correct:"evaluados", expl:"Evaluados."},
-  {id:32, type:"case", q:"Caso: No se evalúa proveedor. ¿Cumple?", options:["Sí","No","Depende","Solo si es confiable"], correct:1, expl:"No cumple."},
-  {id:33, type:"tf", q:"Los productos no conformes deben controlarse.", correct:true, expl:"Verdadero (8.7)."},
-  {id:134, type:"mcq", q:"¿Qué hacer con producto defectuoso?", options:["Venderlo","Identificarlo","Ignorarlo","Reutilizarlo"], correct:1, expl:"Identificarlo y controlarlo."},
-  {id:35, type:"fill", q:"Los productos no conformes deben ser ______.", correct:"identificados", expl:"Identificados."},
-  {id:36, type:"case", q:"Caso: Producto defectuoso se vende. ¿Cumple?", options:["Sí","No","Depende","Solo si es barato"], correct:1, expl:"No cumple."},
-  {id:37, type:"tf", q:"Se deben analizar datos del SGC.", correct:true, expl:"Verdadero."},
-  {id:38, type:"mcq", q:"¿Qué mide el desempeño?", options:["Solo ventas","Indicadores","Solo clientes","Nada"], correct:1, expl:"Indicadores."},
-  {id:39, type:"fill", q:"Los indicadores deben ser ______.", correct:"analizados", expl:"Analizados."},
-  {id:40, type:"case", q:"Caso: No se analizan indicadores. ¿Cumple?", options:["Sí","No","Depende","Solo si hay datos"], correct:1, expl:"No cumple."},
-  {id:41, type:"tf", q:"Las auditorías internas deben planificarse.", correct:true, expl:"Verdadero."},
-  {id:42, type:"mcq", q:"¿Qué verifica auditoría interna?", options:["Personas","Cumplimiento","Salarios","Ventas"], correct:1, expl:"Cumplimiento del SGC."},
-  {id:43, type:"fill", q:"Las auditorías deben ser ______.", correct:"planificadas", expl:"Planificadas."},
-  {id:44, type:"case", q:"Caso: Auditoría sin planificación. ¿Cumple?", options:["Sí","No","Depende","Solo si es pequeña"], correct:1, expl:"No cumple."},
-  {id:45, type:"tf", q:"La revisión por la dirección es obligatoria.", correct:true, expl:"Verdadero."},
-  {id:46, type:"mcq", q:"¿Quién revisa el SGC?", options:["Operarios","Alta dirección","Clientes","Auditor"], correct:1, expl:"Alta dirección."},
-  {id:47, type:"fill", q:"La revisión debe ser ______.", correct:"periódica", expl:"Periódica."},
-  {id:48, type:"case", q:"Caso: No se hace revisión. ¿Cumple?", options:["Sí","No","Depende","Solo si es estable"], correct:1, expl:"No cumple."},
-  {id:49, type:"tf", q:"Las acciones correctivas son obligatorias.", correct:true, expl:"Verdadero."},
-  {id:50, type:"mcq", q:"¿Qué busca acción correctiva?", options:["Eliminar causa","Ocultar error","Ignorar problema","Repetir proceso"], correct:0, expl:"Eliminar causa raíz."}
+  1: [  // Nivel Intermedio - 50 preguntas (corregidas)
+    {id:101, type:"tf", q:"La cláusula 4.1 exige identificar factores internos y externos del SGC.", correct:true, expl:"Verdadero."},
+    {id:102, type:"mcq", q:"¿Qué establece la cláusula 4.2?", options:["Auditorías","Partes interesadas","Producción","Mejora"], correct:1, expl:"Partes interesadas."},
+    {id:103, type:"fill", q:"Las partes interesadas deben ser ______ y monitoreadas.", correct:"identificadas", expl:"Identificadas (cláusula 4.2)."},
+    {id:104, type:"case", q:"Caso: No se identifican partes interesadas. ¿Cumple?", options:["Sí","No (4.2)","Solo si es PYME","Depende"], correct:1, expl:"No cumple ISO."},
+    {id:105, type:"tf", q:"El alcance del SGC debe estar documentado.", correct:true, expl:"Verdadero (4.3)."},
+    {id:106, type:"mcq", q:"¿Qué incluye el alcance del SGC?", options:["Solo procesos","Productos y servicios","Solo clientes","Solo proveedores"], correct:1, expl:"Productos y servicios."},
+    {id:107, type:"fill", q:"Los procesos del SGC deben ser ______ y mejorados.", correct:"controlados", expl:"Controlados."},
+    {id:108, type:"case", q:"Caso: Procesos definidos pero no controlados. ¿Cumple?", options:["Sí","No","Depende","Solo si hay registros"], correct:1, expl:"No cumple."},
+    {id:109, type:"tf", q:"La alta dirección debe promover el enfoque al cliente.", correct:true, expl:"Verdadero."},
+    {id:110, type:"mcq", q:"¿Qué incluye el liderazgo?", options:["Solo supervisión","Compromiso y dirección","Solo control","Solo auditorías"], correct:1, expl:"Compromiso y liderazgo."},
+    {id:111, type:"fill", q:"La dirección debe asignar ______ y responsabilidades.", correct:"autoridades", expl:"Autoridades claras."},
+    {id:112, type:"case", q:"Caso: No hay responsabilidades claras. ¿Cumple?", options:["Sí","No","Depende","Solo si es pequeña"], correct:1, expl:"No cumple."},
+    {id:113, type:"tf", q:"Los objetivos de calidad deben ser medibles.", correct:true, expl:"Verdadero."},
+    {id:114, type:"mcq", q:"¿Qué se debe considerar en planificación?", options:["Costos","Riesgos y oportunidades","Clientes","Ventas"], correct:1, expl:"Riesgos y oportunidades."},
+    {id:115, type:"fill", q:"Los riesgos deben ser ______ y tratados.", correct:"evaluados", expl:"Evaluados."},
+    {id:116, type:"case", q:"Caso: No se evalúan riesgos. ¿Cumple?", options:["Sí","No (6.1)","Depende","Solo si hay fallas"], correct:1, expl:"No cumple."},
+    {id:117, type:"tf", q:"La infraestructura es parte de los recursos.", correct:true, expl:"Verdadero."},
+    {id:118, type:"mcq", q:"¿Qué es competencia?", options:["Capacidad demostrada","Solo experiencia","Solo títulos","Solo capacitación"], correct:0, expl:"Capacidad demostrada."},
+    {id:119, type:"fill", q:"El personal debe ser ______ para su función.", correct:"competente", expl:"Competente."},
+    {id:120, type:"case", q:"Caso: Personal sin capacitación. ¿Cumple?", options:["Sí","No (7.2)","Depende","Solo si aprende rápido"], correct:1, expl:"No cumple."},
+    {id:121, type:"tf", q:"La comunicación es parte del soporte.", correct:true, expl:"Verdadero (7.4)."},
+    {id:122, type:"mcq", q:"¿Qué debe controlarse?", options:["Solo dinero","Información documentada","Solo personas","Nada"], correct:1, expl:"Información documentada."},
+    {id:123, type:"fill", q:"Los documentos deben ser ______ y actualizados.", correct:"controlados", expl:"Controlados."},
+    {id:124, type:"case", q:"Caso: Documentos obsoletos en uso. ¿Cumple?", options:["Sí","No","Depende","Solo si son pocos"], correct:1, expl:"No cumple."},
+    {id:125, type:"tf", q:"La planificación operativa es parte de la cláusula 8.", correct:true, expl:"Verdadero."},
+    {id:126, type:"mcq", q:"¿Qué se revisa antes de aceptar pedidos?", options:["Precio","Requisitos del cliente","Proveedor","Tiempo"], correct:1, expl:"Requisitos del cliente."},
+    {id:127, type:"fill", q:"Los productos deben cumplir requisitos ______.", correct:"especificados", expl:"Especificados."},
+    {id:128, type:"case", q:"Caso: No se revisan requisitos del cliente. ¿Cumple?", options:["Sí","No","Depende","Solo si hay contrato"], correct:1, expl:"No cumple."},
+    {id:129, type:"tf", q:"El control de proveedores es obligatorio.", correct:true, expl:"Verdadero."},
+    {id:130, type:"mcq", q:"¿Qué hacer con proveedores?", options:["Ignorarlos","Evaluarlos","Solo pagar","Nada"], correct:1, expl:"Evaluarlos."},
+    {id:131, type:"fill", q:"Los proveedores deben ser ______ periódicamente.", correct:"evaluados", expl:"Evaluados."},
+    {id:132, type:"case", q:"Caso: No se evalúa proveedor. ¿Cumple?", options:["Sí","No","Depende","Solo si es confiable"], correct:1, expl:"No cumple."},
+    {id:133, type:"tf", q:"Los productos no conformes deben controlarse.", correct:true, expl:"Verdadero (8.7)."},
+    {id:134, type:"mcq", q:"¿Qué hacer con producto defectuoso?", options:["Venderlo","Identificarlo","Ignorarlo","Reutilizarlo"], correct:1, expl:"Identificarlo y controlarlo."},
+    {id:135, type:"fill", q:"Los productos no conformes deben ser ______.", correct:"identificados", expl:"Identificados."},
+    {id:136, type:"case", q:"Caso: Producto defectuoso se vende. ¿Cumple?", options:["Sí","No","Depende","Solo si es barato"], correct:1, expl:"No cumple."},
+    {id:137, type:"tf", q:"Se deben analizar datos del SGC.", correct:true, expl:"Verdadero."},
+    {id:138, type:"mcq", q:"¿Qué mide el desempeño?", options:["Solo ventas","Indicadores","Solo clientes","Nada"], correct:1, expl:"Indicadores."},
+    {id:139, type:"fill", q:"Los indicadores deben ser ______.", correct:"analizados", expl:"Analizados."},
+    {id:140, type:"case", q:"Caso: No se analizan indicadores. ¿Cumple?", options:["Sí","No","Depende","Solo si hay datos"], correct:1, expl:"No cumple."},
+    {id:141, type:"tf", q:"Las auditorías internas deben planificarse.", correct:true, expl:"Verdadero."},
+    {id:142, type:"mcq", q:"¿Qué verifica auditoría interna?", options:["Personas","Cumplimiento","Salarios","Ventas"], correct:1, expl:"Cumplimiento del SGC."},
+    {id:143, type:"fill", q:"Las auditorías deben ser ______.", correct:"planificadas", expl:"Planificadas."},
+    {id:144, type:"case", q:"Caso: Auditoría sin planificación. ¿Cumple?", options:["Sí","No","Depende","Solo si es pequeña"], correct:1, expl:"No cumple."},
+    {id:145, type:"tf", q:"La revisión por la dirección es obligatoria.", correct:true, expl:"Verdadero."},
+    {id:146, type:"mcq", q:"¿Quién revisa el SGC?", options:["Operarios","Alta dirección","Clientes","Auditor"], correct:1, expl:"Alta dirección."},
+    {id:147, type:"fill", q:"La revisión debe ser ______.", correct:"periódica", expl:"Periódica."},
+    {id:148, type:"case", q:"Caso: No se hace revisión. ¿Cumple?", options:["Sí","No","Depende","Solo si es estable"], correct:1, expl:"No cumple."},
+    {id:149, type:"tf", q:"Las acciones correctivas son obligatorias.", correct:true, expl:"Verdadero."},
+    {id:150, type:"mcq", q:"¿Qué busca acción correctiva?", options:["Eliminar causa","Ocultar error","Ignorar problema","Repetir proceso"], correct:0, expl:"Eliminar causa raíz."}
   ],
 
   // ==================== NIVEL AVANZADO (100 preguntas) ====================
   2: [
-{ id:1, type:"tf", q:"La ISO 9001:2015 exige documentar todos los procesos del SGC.", correct:false, expl:"Falso. Solo los necesarios para la eficacia del sistema."},
-{ id:2, type:"mcq", q:"¿Qué concepto reemplaza 'acciones preventivas' en ISO 9001:2015?", options:["Auditoría","Gestión de riesgos","Revisión","Control documental"], correct:1, expl:"Gestión basada en riesgos."},
-{ id:3, type:"fill", q:"El enfoque basado en procesos implica identificar entradas, salidas y _____ de los procesos.", correct:"interacciones", expl:"Interacciones entre procesos."},
-{ id:4, type:"case", q:"Caso: Una empresa no analiza el contexto externo. ¿Qué riesgo tiene?", options:["Ninguno","Falla estratégica del SGC","Solo operativo","Solo financiero"], correct:1, expl:"Afecta la planificación estratégica del SGC."},
-{ id:5, type:"tf", q:"El liderazgo puede delegarse totalmente en el representante de calidad.", correct:false, expl:"Falso. La alta dirección es responsable."},
-{ id:6, type:"mcq", q:"¿Qué debe garantizar la alta dirección?", options:["Solo ventas","Integración del SGC en procesos","Solo auditorías","Solo recursos"], correct:1, expl:"Integración del SGC."},
-{ id:7, type:"fill", q:"La organización debe abordar riesgos y _____ para asegurar resultados del SGC.", correct:"oportunidades", expl:"Riesgos y oportunidades."},
-{ id:8, type:"case", q:"Caso: No se definen indicadores de proceso. ¿Cumple?", options:["Sí","No (cláusula 9.1)","Solo si es pequeña empresa","Depende"], correct:1, expl:"Se deben medir procesos."},
-{ id:9, type:"tf", q:"La norma exige manual de calidad obligatorio.", correct:false, expl:"Falso. Ya no es obligatorio."},
-{ id:10, type:"mcq", q:"¿Qué incluye el control operacional?", options:["Solo producción","Planificación y control de procesos","Solo inspección","Solo compras"], correct:1, expl:"Cláusula 8."},
-{ id:11, type:"fill", q:"La información documentada debe ser controlada en cuanto a _____ y disponibilidad.", correct:"acceso", expl:"Acceso y uso."},
-{ id:12, type:"case", q:"Caso: Se pierde un registro clave. ¿Qué falla?", options:["Control documental","Auditoría","Cliente","Proveedor"], correct:0, expl:"Falla en control de información documentada."},
-{ id:13, type:"tf", q:"La satisfacción del cliente es un indicador obligatorio.", correct:true, expl:"Cláusula 9.1.2."},
-{ id:14, type:"mcq", q:"¿Qué evidencia se requiere en auditoría?", options:["Opiniones","Registros","Rumores","Suposiciones"], correct:1, expl:"Evidencia objetiva."},
-{ id:15, type:"fill", q:"Las no conformidades requieren acciones _____ para evitar recurrencia.", correct:"correctivas", expl:"Acciones correctivas."},
-{ id:16, type:"case", q:"Caso: Se corrige un problema pero no su causa. ¿Cumple?", options:["Sí","No","Depende","Parcial"], correct:1, expl:"Debe eliminarse la causa raíz."},
-{ id:17, type:"tf", q:"La mejora continua implica cambios ocasionales.", correct:false, expl:"Debe ser sistemática."},
-{ id:18, type:"mcq", q:"¿Qué se evalúa en proveedores?", options:["Precio","Desempeño","Ubicación","Marketing"], correct:1, expl:"Desempeño del proveedor."},
-{ id:19, type:"fill", q:"Los procesos externalizados deben ser _____ por la organización.", correct:"controlados", expl:"Controlados (8.4)."},
-{ id:20, type:"case", q:"Caso: Un proveedor falla repetidamente. ¿Acción?", options:["Ignorar","Evaluar y tomar acciones","Aceptar","Cambiar sin análisis"], correct:1, expl:"Gestión de proveedores."},
-{ id:21, type:"tf", q:"La trazabilidad aplica siempre.", correct:false, expl:"Solo cuando es requerido."},
-{ id:22, type:"mcq", q:"¿Qué cláusula trata auditorías internas?", options:["8","9.2","10","6"], correct:1, expl:"9.2."},
-{ id:23, type:"fill", q:"Los objetivos de calidad deben ser _____ y medibles.", correct:"coherentes", expl:"Coherentes con la política."},
-{ id:24, type:"case", q:"Caso: No hay revisión por dirección. ¿Impacto?", options:["Ninguno","Falla estratégica","Solo documental","Solo auditoría"], correct:1, expl:"Impacta todo el sistema."},
-{ id:25, type:"tf", q:"El enfoque al cliente incluye requisitos implícitos.", correct:true, expl:"Sí, no solo explícitos."},
-{ id:26, type:"mcq", q:"¿Qué debe definirse en procesos?", options:["Entradas/salidas","Solo costos","Solo personal","Solo tiempo"], correct:0, expl:"Entradas y salidas."},
-{ id:27, type:"fill", q:"El SGC debe mejorar continuamente su _____.", correct:"eficacia", expl:"Eficacia del sistema."},
-{ id:28, type:"case", q:"Caso: No hay evidencia de capacitación. ¿Cumple?", options:["Sí","No","Depende","Parcial"], correct:1, expl:"Debe evidenciarse competencia."},
-{ id:29, type:"tf", q:"El conocimiento organizacional debe gestionarse.", correct:true, expl:"Cláusula 7.1.6."},
-{ id:30, type:"mcq", q:"¿Qué es una no conformidad?", options:["Cumplimiento","Incumplimiento","Mejora","Auditoría"], correct:1, expl:"Incumplimiento de requisito."},
-{ id:31, type:"fill", q:"La mejora se basa en el ciclo _____.", correct:"PDCA", expl:"Plan-Do-Check-Act."},
-{ id:32, type:"case", q:"Caso: Indicadores sin seguimiento. ¿Cumple?", options:["Sí","No","Parcial","Depende"], correct:1, expl:"Debe hacerse seguimiento."},
-{ id:33, type:"tf", q:"La comunicación debe ser planificada.", correct:true, expl:"Cláusula 7.4."},
-{ id:34, type:"mcq", q:"¿Qué se debe documentar?", options:["Todo","Nada","Lo necesario","Solo manual"], correct:2, expl:"Solo lo necesario."},
-{ id:35, type:"fill", q:"Las auditorías deben ser _____ e imparciales.", correct:"objetivas", expl:"Objetividad."},
-{ id:36, type:"case", q:"Caso: No hay control de cambios. ¿Cumple?", options:["Sí","No","Parcial","Depende"], correct:1, expl:"Debe controlarse."},
-{ id:37, type:"tf", q:"El riesgo es efecto de incertidumbre.", correct:true, expl:"Definición ISO."},
-{ id:38, type:"mcq", q:"¿Qué se revisa en 9.3?", options:["Dirección","Clientes","Compras","Producción"], correct:0, expl:"Revisión por dirección."},
-{ id:39, type:"fill", q:"La evidencia debe ser _____ y verificable.", correct:"objetiva", expl:"Evidencia objetiva."},
-{ id:40, type:"case", q:"Caso: Cliente insatisfecho no registrado. ¿Cumple?", options:["Sí","No","Parcial","Depende"], correct:1, expl:"Debe registrarse."},
-{ id:41, type:"tf", q:"La mejora incluye innovación.", correct:true, expl:"Sí, mejora continua."},
-{ id:42, type:"mcq", q:"¿Qué requiere ISO 9001?", options:["Certificación obligatoria","Sistema documentado","SGC","Solo auditoría"], correct:2, expl:"Sistema de gestión."},
-{ id:43, type:"fill", q:"Los procesos deben agregar _____.", correct:"valor", expl:"Valor al cliente."},
-{ id:44, type:"case", q:"Caso: No se evalúan riesgos. ¿Cumple?", options:["Sí","No","Parcial","Depende"], correct:1, expl:"Cláusula 6."},
-{ id:45, type:"tf", q:"La norma aplica a cualquier organización.", correct:true, expl:"Sin importar tamaño."},
-{ id:46, type:"mcq", q:"¿Qué es evidencia objetiva?", options:["Opinión","Datos verificables","Rumor","Suposición"], correct:1, expl:"Datos verificables."},
-{ id:47, type:"fill", q:"Las auditorías deben ser _____.", correct:"planificadas", expl:"Planificadas."},
-{ id:48, type:"case", q:"Caso: Falta de registros. ¿Cumple?", options:["Sí","No","Parcial","Depende"], correct:1, expl:"No cumple."},
-{ id:49, type:"tf", q:"El cliente define requisitos.", correct:true, expl:"Sí."},
-{ id:50, type:"mcq", q:"¿Qué mide desempeño?", options:["Indicadores","Rumores","Ideas","Opinión"], correct:0, expl:"Indicadores."},
-{id:51,type:"case",q:"Caso: En una planta de alimentos, existen procedimientos documentados de limpieza y desinfección. Sin embargo, durante la auditoría no se encuentran registros consistentes de su ejecución diaria. ¿Cómo se clasifica este hallazgo?",options:["Conformidad","No conformidad menor","No conformidad mayor","Oportunidad de mejora"],correct:2,expl:"La ausencia sistemática de registros evidencia falla en la implementación del control (cláusula 7.5 y 8.5), lo que puede comprometer la inocuidad del producto."},
-{id:52,
-type:"case",q:"Caso: Un laboratorio realiza ensayos con equipos que no han sido calibrados en el periodo establecido, pero asegura que 'funcionan bien'. ¿Cuál es el principal impacto?",
-options:["Ninguno si los resultados son coherentes","Afecta únicamente auditorías externas","Compromete la validez de los resultados (7.1.5)","Solo es una observación menor"],correct:2,expl:"La falta de calibración rompe la trazabilidad metrológica y compromete la confiabilidad de los resultados."},
-
-{id:53,type:"mcq",q:"Según ISO 9001:2015, ¿cuál es el objetivo de controlar los procesos externalizados (outsourcing)?",options:["Reducir costos operativos","Transferir responsabilidad al proveedor","Asegurar que cumplen requisitos del SGC (8.4)",
-"Evitar auditorías internas"],correct:2,expl:"La organización mantiene responsabilidad sobre los procesos externalizados."},
-
-{
-id:54,
-type:"case",
-q:"Caso: En una farmacia, se detecta que los medicamentos se almacenan sin control de temperatura documentado. ¿Qué tipo de riesgo representa principalmente?",
-options:[
-"Riesgo financiero",
-"Riesgo de cumplimiento documental",
-"Riesgo a la calidad y seguridad del producto",
-"Riesgo administrativo"
-],
-correct:2,
-expl:"Las condiciones de almacenamiento afectan directamente la calidad del medicamento (8.5.4)."
-},
-
-{
-id:55,
-type:"tf",
-q:"Una organización puede excluir requisitos de la cláusula 8 si no afectan la conformidad del producto o servicio.",
-correct:true,
-expl:"Siempre que se justifique dentro del alcance del SGC (cláusula 4.3)."
-},
-
-{
-id:56,
-type:"case",
-q:"Caso: Durante auditoría se evidencia que existen indicadores de proceso, pero no se analizan ni se toman decisiones con base en ellos. ¿Qué incumplimiento se identifica?",
-options:[
-"Cláusula 7.2 — Competencia",
-"Cláusula 9.1 — Seguimiento, medición, análisis y evaluación",
-"Cláusula 8.5 — Producción",
-"Cláusula 10.1 — Mejora"
-],
-correct:1,
-expl:"No basta medir; se debe analizar y usar la información para la toma de decisiones."
-},
-
-{
-id:57,
-type:"fill",
-q:"Las acciones correctivas deben abordar la _____ raíz para prevenir la recurrencia de la no conformidad.",
-correct:"causa",
-expl:"Cláusula 10.2 — eliminar la causa raíz."
-},
-
-{
-id:58,
-type:"case",
-q:"Caso: Una empresa cambia un proveedor crítico sin realizar evaluación previa ni análisis de riesgos. ¿Cuál es la mejor clasificación?",
-options:[
-"Conforme si el proveedor cumple",
-"No conformidad menor",
-"No conformidad mayor",
-"Oportunidad de mejora"
-],
-correct:2,
-expl:"El incumplimiento de evaluación de proveedores (8.4) puede afectar directamente la calidad del producto."
-},
-
-{
-id:59,
-type:"mcq",
-q:"¿Qué caracteriza una evidencia objetiva en auditoría ISO 9001?",
-options:[
-"Opinión del auditor",
-"Percepción del cliente",
-"Datos verificables y registros",
-"Suposiciones basadas en experiencia"
-],
-correct:2,
-expl:"La auditoría se basa en evidencia objetiva, no en opiniones."
-}, 
-{id:60,type:"case",q:"Caso: En una planta de alimentos, se detecta contaminación cruzada potencial entre áreas de proceso por mala segregación. No hay evidencia de acciones preventivas. ¿Qué cláusula está principalmente afectada?",
-options:[
-"Cláusula 4 — Contexto", "Cláusula 6 — Planificación", "Cláusula 8.5 — Control de producción", "Cláusula 9 — Evaluación del desempeño"
-],correct:2, expl:"El control operacional debe prevenir contaminación (8.5)."
-},
- {id:60, type:"case", q:"Caso: Durante una auditoría se detecta que los indicadores de calidad no tienen metas definidas. ¿Qué incumplimiento aplica?", options:["Cláusula 7.1","Cláusula 6.2","Cláusula 8.1","No hay incumplimiento"], correct:1, expl:"Incumple cláusula 6.2: los objetivos de calidad deben ser medibles y contar con metas definidas."},
-{id:61, type:"tf", q:"Los objetivos de calidad deben ser coherentes con la política de calidad de la organización.", correct:true, expl:"Verdadero. Esto es un requisito de la cláusula 6.2."},
-{id:62, type:"mcq", q:"¿Qué debe incluir la planificación para lograr los objetivos de calidad?", options:["Solo presupuesto","Responsables, recursos, plazos y métodos de evaluación","Únicamente indicadores financieros","Solo capacitación"], correct:1, expl:"Debe incluir responsables, recursos, plazos y evaluación (cláusula 6.2.2)."},
-{id:63, type:"fill", q:"La organización debe conservar información documentada como evidencia de la _____ de los resultados obtenidos.", correct:"evaluación", expl:"La evaluación permite demostrar cumplimiento (cláusula 9.1)."},
-
-    {id:64, type:"case", q:"Caso: No existen registros de seguimiento a indicadores de desempeño. ¿Qué cláusula se incumple?", options:["Cláusula 8.5","Cláusula 9.1","Cláusula 7.2","Cláusula 10.3"], correct:1, expl:"Incumple cláusula 9.1 sobre seguimiento, medición y análisis del desempeño."},
-
-    {id:65, type:"tf", q:"La organización puede excluir requisitos del capítulo 8 si no aplican, siempre que lo justifique en el alcance del SGC.", correct:true, expl:"Verdadero. Esto se establece en la cláusula 4.3."},
-
-    {id:66, type:"mcq", q:"¿Qué requisito es obligatorio en la revisión por la dirección?", options:["Solo revisar ventas","Evaluar el desempeño del SGC y oportunidades de mejora","Revisar salarios","Evaluar únicamente proveedores"], correct:1, expl:"Debe evaluar desempeño del SGC y oportunidades (cláusula 9.3)."},
-
-    {id:67, type:"fill", q:"Las auditorías internas deben ser planificadas considerando la _____ y la importancia de los procesos.", correct:"frecuencia", expl:"La frecuencia y criticidad deben considerarse (cláusula 9.2)."},
-
-    {id:68, type:"case", q:"Caso: El programa de auditoría no considera los resultados de auditorías previas. ¿Es conforme?", options:["Sí","No, incumple cláusula 9.2","Depende del auditor","Solo si es pequeña empresa"], correct:1, expl:"No es conforme. Debe considerar resultados previos (cláusula 9.2)."},
-
-    {id:69, type:"tf", q:"La organización debe reaccionar ante una no conformidad y tomar acciones para controlarla y corregirla.", correct:true, expl:"Verdadero (cláusula 10.2)."},
-
-    {id:70, type:"mcq", q:"¿Qué elemento es esencial en una acción correctiva efectiva?", options:["Eliminar evidencia","Identificar causa raíz","Ignorar el problema","Delegar sin seguimiento"], correct:1, expl:"Debe identificarse la causa raíz para evitar recurrencia (cláusula 10.2)."},
-    {id:71, type:"case", q:"Caso: Una organización implementa acciones correctivas pero no verifica su eficacia. ¿Qué incumplimiento se presenta?", options:["Cláusula 8.5","Cláusula 10.2","Cláusula 7.1","No hay incumplimiento"], correct:1, expl:"Incumple cláusula 10.2, ya que es obligatorio evaluar la eficacia de las acciones correctivas."},
-
-    {id:72, type:"tf", q:"La información documentada puede estar en cualquier formato siempre que sea controlada adecuadamente.", correct:true, expl:"Verdadero. ISO 9001:2015 es flexible en cuanto a formatos (cláusula 7.5)."},
-
-    {id:73, type:"mcq", q:"¿Cuál es el propósito principal del control de cambios en el SGC?", options:["Evitar auditorías","Asegurar que los cambios no afecten negativamente el sistema","Reducir documentación","Eliminar procesos"], correct:1, expl:"El control de cambios asegura la integridad del SGC (cláusula 6.3)."},
-
-    {id:74, type:"fill", q:"La organización debe asegurar la disponibilidad de _____ adecuada para la operación de sus procesos.", correct:"infraestructura", expl:"Infraestructura adecuada es requisito de la cláusula 7.1.3."},
-
-    {id:75, type:"case", q:"Caso: Un equipo de medición no ha sido calibrado y se usa en producción. ¿Qué requisito se incumple?", options:["Cláusula 7.1.5","Cláusula 8.2","Cláusula 9.3","No aplica"], correct:0, expl:"Incumple cláusula 7.1.5 sobre control de equipos de seguimiento y medición."},
-
-    {id:76, type:"tf", q:"El conocimiento organizacional debe mantenerse y ponerse a disposición cuando sea necesario.", correct:true, expl:"Verdadero (cláusula 7.1.6)."},
-
-    {id:77, type:"mcq", q:"¿Qué se debe hacer cuando un proceso externo afecta la conformidad del producto?", options:["Ignorarlo","Controlarlo y evaluarlo","Delegarlo completamente","Eliminarlo sin análisis"], correct:1, expl:"Debe ser controlado según cláusula 8.4."},
-
-    {id:78, type:"fill", q:"Los criterios de aceptación deben ser definidos para asegurar la _____ de los productos y servicios.", correct:"conformidad", expl:"Esto asegura que se cumplan requisitos (cláusula 8.6)."},
-
-    {id:79, type:"case", q:"Caso: La organización no registra quién autorizó la liberación del producto. ¿Es conforme?", options:["Sí","No, incumple cláusula 8.6","Depende del cliente","Solo si es servicio"], correct:1, expl:"Debe existir evidencia de autorización de liberación (cláusula 8.6)."},
-
-    {id:80, type:"mcq", q:"¿Cuál es el objetivo del análisis de datos en el SGC?", options:["Solo archivar información","Demostrar conformidad y evaluar eficacia del sistema","Reducir auditorías","Eliminar registros"], correct:1, expl:"El análisis de datos permite evaluar desempeño y eficacia (cláusula 9.1.3)."},
-    {id:80, type:"case", q:"Caso: La organización analiza datos, pero no utiliza los resultados para tomar decisiones. ¿Es conforme?", options:["Sí","No, incumple cláusula 9.1.3","Depende del auditor","Solo si hay auditoría"], correct:1, expl:"No cumple. El análisis debe usarse para la toma de decisiones (cláusula 9.1.3)."},
-
-    {id:81, type:"tf", q:"La mejora continua implica únicamente acciones correctivas.", correct:false, expl:"Falso. Incluye mejoras incrementales, innovación y optimización (cláusula 10.3)."},
-
-    {id:82, type:"mcq", q:"¿Qué elemento es clave para asegurar la trazabilidad cuando es un requisito?", options:["Etiquetado y registros","Solo memoria del operario","Correo electrónico","Factura"], correct:0, expl:"La trazabilidad se asegura mediante identificación y registros (cláusula 8.5.2)."},
-
-    {id:83, type:"fill", q:"La organización debe determinar los métodos para el seguimiento, medición, análisis y _____ del SGC.", correct:"evaluación", expl:"Cláusula 9.1 establece estos requisitos."},
-
-    {id:84, type:"case", q:"Caso: Un proceso crítico no tiene criterios definidos de aceptación. ¿Cumple con la norma?", options:["Sí","No, incumple cláusula 8.1","Depende del cliente","Solo si hay inspección final"], correct:1, expl:"Incumple la planificación y control operacional (cláusula 8.1)."},
-
-    {id:85, type:"tf", q:"La satisfacción del cliente debe ser monitoreada como parte del desempeño del SGC.", correct:true, expl:"Verdadero (cláusula 9.1.2)."},
-
-    {id:86, type:"mcq", q:"¿Qué debe hacerse cuando se identifica una no conformidad?", options:["Ignorarla","Registrar, analizar y tomar acciones","Ocultarla","Delegarla sin seguimiento"], correct:1, expl:"Debe gestionarse completamente según cláusula 10.2."},
-
-    {id:87, type:"fill", q:"La alta dirección debe asegurar la _____ del enfoque al cliente en toda la organización.", correct:"integración", expl:"El enfoque al cliente debe integrarse en procesos (cláusula 5.1.2)."},
-
-    {id:88, type:"case", q:"Caso: La organización no evalúa periódicamente a sus proveedores. ¿Es conforme?", options:["Sí","No, incumple cláusula 8.4","Solo si son antiguos","Depende del contrato"], correct:1, expl:"Debe evaluarlos continuamente (cláusula 8.4)."},
-
-    {id:89, type:"tf", q:"La información documentada debe protegerse contra pérdida de confidencialidad e integridad.", correct:true, expl:"Verdadero (cláusula 7.5.3)."},
-
-    {id:90, type:"mcq", q:"¿Cuál es el propósito del control de salidas no conformes?", options:["Eliminar registros","Prevenir uso o entrega no intencionada","Reducir costos","Acelerar producción"], correct:1, expl:"Evitar que productos no conformes lleguen al cliente (cláusula 8.7)."},
-
-    {id:91, type:"case", q:"Caso: Un laboratorio utiliza métodos no validados para análisis críticos. ¿Qué principio se ve afectado?", options:["Enfoque al cliente","Toma de decisiones basada en evidencia","Liderazgo","Relación con proveedores"], correct:1, expl:"Se afecta la confiabilidad de los resultados (evidencia)."},
-
-    {id:92, type:"mcq", q:"En una planta de alimentos, ¿qué requisito es clave para evitar contaminación cruzada?", options:["Control ambiental y de procesos","Solo limpieza visual","Uso de uniforme","Control financiero"], correct:0, expl:"El control ambiental y de procesos es esencial (relacionado con cláusula 7.1 y 8.5)."},
-
-    {id:93, type:"case", q:"Caso: En una farmacéutica, los registros de lote no son legibles. ¿Qué incumplimiento aplica?", options:["Cláusula 7.5","Cláusula 8.2","Cláusula 6.1","No aplica"], correct:0, expl:"La información documentada debe ser legible (cláusula 7.5)."},
-
-    {id:94, type:"tf", q:"El pensamiento basado en riesgos sustituye completamente las acciones preventivas.", correct:true, expl:"Verdadero. ISO 9001:2015 integra la prevención mediante riesgos."},
-
-    {id:95, type:"mcq", q:"¿Qué evidencia demuestra competencia del personal?", options:["Diplomas únicamente","Evaluación, formación y experiencia documentada","Solo asistencia","Ninguna"], correct:1, expl:"La competencia se demuestra con múltiples evidencias (cláusula 7.2)."},
-
-    {id:96, type:"case", q:"Caso: No se documenta el alcance del SGC. ¿Es conforme?", options:["Sí","No, incumple cláusula 4.3","Depende del auditor","Solo en grandes empresas"], correct:1, expl:"El alcance debe documentarse (cláusula 4.3)."},
-
-    {id:97, type:"fill", q:"La mejora continua del SGC debe basarse en el análisis de datos, auditorías y _____ por la dirección.", correct:"revisión", expl:"La revisión por la dirección impulsa la mejora (cláusula 9.3)."},
-
-    {id:98, type:"tf", q:"Un proceso puede considerarse eficaz aunque no esté documentado formalmente.", correct:true, expl:"Verdadero, siempre que se controle y cumpla requisitos (enfoque flexible ISO 9001)."},
-
-    {id:99, type:"mcq", q:"¿Qué se debe hacer antes de implementar cambios significativos en el SGC?", options:["Nada","Planificarlos considerando riesgos y consecuencias","Solo informar","Ejecutarlos directamente"], correct:1, expl:"Cláusula 6.3 exige planificación de cambios."},
-
-    {id:100, type:"case", q:"Caso: Una empresa mejora continuamente pero no lo evidencia. ¿Cumple con ISO 9001?", options:["Sí","No, falta evidencia documentada","Depende","Solo si lo declara"], correct:1, expl:"La mejora debe evidenciarse (cláusula 10.3)."}
+    {id:201, type:"tf", q:"La ISO 9001:2015 exige documentar todos los procesos del SGC.", correct:false, expl:"Falso. Solo los necesarios para la eficacia del sistema."},
+    {id:202, type:"mcq", q:"¿Qué concepto reemplaza 'acciones preventivas' en ISO 9001:2015?", options:["Auditoría","Gestión de riesgos","Revisión","Control documental"], correct:1, expl:"Gestión basada en riesgos."},
+    {id:203, type:"fill", q:"El enfoque basado en procesos implica identificar entradas, salidas y _____ de los procesos.", correct:"interacciones", expl:"Interacciones entre procesos."},
+    {id:204, type:"case", q:"Caso: Una empresa no analiza el contexto externo. ¿Qué riesgo tiene?", options:["Ninguno","Falla estratégica del SGC","Solo operativo","Solo financiero"], correct:1, expl:"Afecta la planificación estratégica del SGC."},
+    {id:205, type:"tf", q:"El liderazgo puede delegarse totalmente en el representante de calidad.", correct:false, expl:"Falso. La alta dirección es responsable."},
+    {id:206, type:"mcq", q:"¿Qué debe garantizar la alta dirección?", options:["Solo ventas","Integración del SGC en procesos","Solo auditorías","Solo recursos"], correct:1, expl:"Integración del SGC."},
+    {id:207, type:"fill", q:"La organización debe abordar riesgos y _____ para asegurar resultados del SGC.", correct:"oportunidades", expl:"Riesgos y oportunidades."},
+    {id:208, type:"case", q:"Caso: No se definen indicadores de proceso. ¿Cumple?", options:["Sí","No (cláusula 9.1)","Solo si es pequeña empresa","Depende"], correct:1, expl:"Se deben medir procesos."},
+    {id:209, type:"tf", q:"La norma exige manual de calidad obligatorio.", correct:false, expl:"Falso. Ya no es obligatorio."},
+    {id:210, type:"mcq", q:"¿Qué incluye el control operacional?", options:["Solo producción","Planificación y control de procesos","Solo inspección","Solo compras"], correct:1, expl:"Cláusula 8."},
+    {id:211, type:"fill", q:"La información documentada debe ser controlada en cuanto a _____ y disponibilidad.", correct:"acceso", expl:"Acceso y uso."},
+    {id:212, type:"case", q:"Caso: Se pierde un registro clave. ¿Qué falla?", options:["Control documental","Auditoría","Cliente","Proveedor"], correct:0, expl:"Falla en control de información documentada."},
+    {id:213, type:"tf", q:"La satisfacción del cliente es un indicador obligatorio.", correct:true, expl:"Cláusula 9.1.2."},
+    {id:214, type:"mcq", q:"¿Qué evidencia se requiere en auditoría?", options:["Opiniones","Registros","Rumores","Suposiciones"], correct:1, expl:"Evidencia objetiva."},
+    {id:215, type:"fill", q:"Las no conformidades requieren acciones _____ para evitar recurrencia.", correct:"correctivas", expl:"Acciones correctivas."},
+    {id:216, type:"case", q:"Caso: Se corrige un problema pero no su causa. ¿Cumple?", options:["Sí","No","Depende","Parcial"], correct:1, expl:"Debe eliminarse la causa raíz."},
+    {id:217, type:"tf", q:"La mejora continua implica cambios ocasionales.", correct:false, expl:"Debe ser sistemática."},
+    {id:218, type:"mcq", q:"¿Qué se evalúa en proveedores?", options:["Precio","Desempeño","Ubicación","Marketing"], correct:1, expl:"Desempeño del proveedor."},
+    {id:219, type:"fill", q:"Los procesos externalizados deben ser _____ por la organización.", correct:"controlados", expl:"Controlados (8.4)."},
+    {id:220, type:"case", q:"Caso: Un proveedor falla repetidamente. ¿Acción?", options:["Ignorar","Evaluar y tomar acciones","Aceptar","Cambiar sin análisis"], correct:1, expl:"Gestión de proveedores."},
+    {id:221, type:"tf", q:"La trazabilidad aplica siempre.", correct:false, expl:"Solo cuando es requerido."},
+    {id:222, type:"mcq", q:"¿Qué cláusula trata auditorías internas?", options:["8","9.2","10","6"], correct:1, expl:"9.2."},
+    {id:223, type:"fill", q:"Los objetivos de calidad deben ser _____ y medibles.", correct:"coherentes", expl:"Coherentes con la política."},
+    {id:224, type:"case", q:"Caso: No hay revisión por dirección. ¿Impacto?", options:["Ninguno","Falla estratégica","Solo documental","Solo auditoría"], correct:1, expl:"Impacta todo el sistema."},
+    {id:225, type:"tf", q:"El enfoque al cliente incluye requisitos implícitos.", correct:true, expl:"Sí, no solo explícitos."},
+    {id:226, type:"mcq", q:"¿Qué debe definirse en procesos?", options:["Entradas/salidas","Solo costos","Solo personal","Solo tiempo"], correct:0, expl:"Entradas y salidas."},
+    {id:227, type:"fill", q:"El SGC debe mejorar continuamente su _____.", correct:"eficacia", expl:"Eficacia del sistema."},
+    {id:228, type:"case", q:"Caso: No hay evidencia de capacitación. ¿Cumple?", options:["Sí","No","Depende","Parcial"], correct:1, expl:"Debe evidenciarse competencia."},
+    {id:229, type:"tf", q:"El conocimiento organizacional debe gestionarse.", correct:true, expl:"Cláusula 7.1.6."},
+    {id:230, type:"mcq", q:"¿Qué es una no conformidad?", options:["Cumplimiento","Incumplimiento","Mejora","Auditoría"], correct:1, expl:"Incumplimiento de requisito."},
+    {id:231, type:"fill", q:"La mejora se basa en el ciclo _____.", correct:"PDCA", expl:"Plan-Do-Check-Act."},
+    {id:232, type:"case", q:"Caso: Indicadores sin seguimiento. ¿Cumple?", options:["Sí","No","Parcial","Depende"], correct:1, expl:"Debe hacerse seguimiento."},
+    {id:233, type:"tf", q:"La comunicación debe ser planificada.", correct:true, expl:"Cláusula 7.4."},
+    {id:234, type:"mcq", q:"¿Qué se debe documentar?", options:["Todo","Nada","Lo necesario","Solo manual"], correct:2, expl:"Solo lo necesario."},
+    {id:235, type:"fill", q:"Las auditorías deben ser _____ e imparciales.", correct:"objetivas", expl:"Objetividad."},
+    {id:236, type:"case", q:"Caso: No hay control de cambios. ¿Cumple?", options:["Sí","No","Parcial","Depende"], correct:1, expl:"Debe controlarse."},
+    {id:237, type:"tf", q:"El riesgo es efecto de incertidumbre.", correct:true, expl:"Definición ISO."},
+    {id:238, type:"mcq", q:"¿Qué se revisa en 9.3?", options:["Dirección","Clientes","Compras","Producción"], correct:0, expl:"Revisión por dirección."},
+    {id:239, type:"fill", q:"La evidencia debe ser _____ y verificable.", correct:"objetiva", expl:"Evidencia objetiva."},
+    {id:240, type:"case", q:"Caso: Cliente insatisfecho no registrado. ¿Cumple?", options:["Sí","No","Parcial","Depende"], correct:1, expl:"Debe registrarse."},
+    {id:241, type:"tf", q:"La mejora incluye innovación.", correct:true, expl:"Sí, mejora continua."},
+    {id:242, type:"mcq", q:"¿Qué requiere ISO 9001?", options:["Certificación obligatoria","Sistema documentado","SGC","Solo auditoría"], correct:2, expl:"Sistema de gestión."},
+    {id:243, type:"fill", q:"Los procesos deben agregar _____.", correct:"valor", expl:"Valor al cliente."},
+    {id:244, type:"case", q:"Caso: No se evalúan riesgos. ¿Cumple?", options:["Sí","No","Parcial","Depende"], correct:1, expl:"Cláusula 6."},
+    {id:245, type:"tf", q:"La norma aplica a cualquier organización.", correct:true, expl:"Sin importar tamaño."},
+    {id:246, type:"mcq", q:"¿Qué es evidencia objetiva?", options:["Opinión","Datos verificables","Rumor","Suposición"], correct:1, expl:"Datos verificables."},
+    {id:247, type:"fill", q:"Las auditorías deben ser _____.", correct:"planificadas", expl:"Planificadas."},
+    {id:248, type:"case", q:"Caso: Falta de registros. ¿Cumple?", options:["Sí","No","Parcial","Depende"], correct:1, expl:"No cumple."},
+    {id:249, type:"tf", q:"El cliente define requisitos.", correct:true, expl:"Sí."},
+    {id:250, type:"mcq", q:"¿Qué mide desempeño?", options:["Indicadores","Rumores","Ideas","Opinión"], correct:0, expl:"Indicadores."},
+    {id:251, type:"case", q:"Caso: En una planta de alimentos, existen procedimientos documentados de limpieza y desinfección. Sin embargo, durante la auditoría no se encuentran registros consistentes de su ejecución diaria. ¿Cómo se clasifica este hallazgo?", options:["Conformidad","No conformidad menor","No conformidad mayor","Oportunidad de mejora"], correct:2, expl:"La ausencia sistemática de registros evidencia falla en la implementación del control (cláusula 7.5 y 8.5), lo que puede comprometer la inocuidad del producto."},
+    {id:252, type:"case", q:"Caso: Un laboratorio realiza ensayos con equipos que no han sido calibrados en el periodo establecido, pero asegura que 'funcionan bien'. ¿Cuál es el principal impacto?", options:["Ninguno si los resultados son coherentes","Afecta únicamente auditorías externas","Compromete la validez de los resultados (7.1.5)","Solo es una observación menor"], correct:2, expl:"La falta de calibración rompe la trazabilidad metrológica y compromete la confiabilidad de los resultados."},
+    {id:253, type:"mcq", q:"Según ISO 9001:2015, ¿cuál es el objetivo de controlar los procesos externalizados (outsourcing)?", options:["Reducir costos operativos","Transferir responsabilidad al proveedor","Asegurar que cumplen requisitos del SGC (8.4)","Evitar auditorías internas"], correct:2, expl:"La organización mantiene responsabilidad sobre los procesos externalizados."},
+    {id:254, type:"case", q:"Caso: En una farmacia, se detecta que los medicamentos se almacenan sin control de temperatura documentado. ¿Qué tipo de riesgo representa principalmente?", options:["Riesgo financiero","Riesgo de cumplimiento documental","Riesgo a la calidad y seguridad del producto","Riesgo administrativo"], correct:2, expl:"Las condiciones de almacenamiento afectan directamente la calidad del medicamento (8.5.4)."},
+    {id:255, type:"tf", q:"Una organización puede excluir requisitos de la cláusula 8 si no afectan la conformidad del producto o servicio.", correct:true, expl:"Siempre que se justifique dentro del alcance del SGC (cláusula 4.3)."},
+    {id:256, type:"case", q:"Caso: Durante auditoría se evidencia que existen indicadores de proceso, pero no se analizan ni se toman decisiones con base en ellos. ¿Qué incumplimiento se identifica?", options:["Cláusula 7.2 — Competencia","Cláusula 9.1 — Seguimiento, medición, análisis y evaluación","Cláusula 8.5 — Producción","Cláusula 10.1 — Mejora"], correct:1, expl:"No basta medir; se debe analizar y usar la información para la toma de decisiones."},
+    {id:257, type:"fill", q:"Las acciones correctivas deben abordar la _____ raíz para prevenir la recurrencia de la no conformidad.", correct:"causa", expl:"Cláusula 10.2 — eliminar la causa raíz."},
+    {id:258, type:"case", q:"Caso: Una empresa cambia un proveedor crítico sin realizar evaluación previa ni análisis de riesgos. ¿Cuál es la mejor clasificación?", options:["Conforme si el proveedor cumple","No conformidad menor","No conformidad mayor","Oportunidad de mejora"], correct:2, expl:"El incumplimiento de evaluación de proveedores (8.4) puede afectar directamente la calidad del producto."},
+    {id:259, type:"mcq", q:"¿Qué caracteriza una evidencia objetiva en auditoría ISO 9001?", options:["Opinión del auditor","Percepción del cliente","Datos verificables y registros","Suposiciones basadas en experiencia"], correct:2, expl:"La auditoría se basa en evidencia objetiva, no en opiniones."},
+    {id:260, type:"case", q:"Caso: En una planta de alimentos, se detecta contaminación cruzada potencial entre áreas de proceso por mala segregación. No hay evidencia de acciones preventivas. ¿Qué cláusula está principalmente afectada?", options:["Cláusula 4 — Contexto", "Cláusula 6 — Planificación", "Cláusula 8.5 — Control de producción", "Cláusula 9 — Evaluación del desempeño"], correct:2, expl:"El control operacional debe prevenir contaminación (8.5)."},
+    {id:261, type:"case", q:"Caso: Durante una auditoría se detecta que los indicadores de calidad no tienen metas definidas. ¿Qué incumplimiento aplica?", options:["Cláusula 7.1","Cláusula 6.2","Cláusula 8.1","No hay incumplimiento"], correct:1, expl:"Incumple cláusula 6.2: los objetivos de calidad deben ser medibles y contar con metas definidas."},
+    {id:262, type:"tf", q:"Los objetivos de calidad deben ser coherentes con la política de calidad de la organización.", correct:true, expl:"Verdadero. Esto es un requisito de la cláusula 6.2."},
+    {id:263, type:"mcq", q:"¿Qué debe incluir la planificación para lograr los objetivos de calidad?", options:["Solo presupuesto","Responsables, recursos, plazos y métodos de evaluación","Únicamente indicadores financieros","Solo capacitación"], correct:1, expl:"Debe incluir responsables, recursos, plazos y evaluación (cláusula 6.2.2)."},
+    {id:264, type:"fill", q:"La organización debe conservar información documentada como evidencia de la _____ de los resultados obtenidos.", correct:"evaluación", expl:"La evaluación permite demostrar cumplimiento (cláusula 9.1)."},
+    {id:265, type:"case", q:"Caso: No existen registros de seguimiento a indicadores de desempeño. ¿Qué cláusula se incumple?", options:["Cláusula 8.5","Cláusula 9.1","Cláusula 7.2","Cláusula 10.3"], correct:1, expl:"Incumple cláusula 9.1 sobre seguimiento, medición y análisis del desempeño."},
+    {id:266, type:"tf", q:"La organización puede excluir requisitos del capítulo 8 si no aplican, siempre que lo justifique en el alcance del SGC.", correct:true, expl:"Verdadero. Esto se establece en la cláusula 4.3."},
+    {id:267, type:"mcq", q:"¿Qué requisito es obligatorio en la revisión por la dirección?", options:["Solo revisar ventas","Evaluar el desempeño del SGC y oportunidades de mejora","Revisar salarios","Evaluar únicamente proveedores"], correct:1, expl:"Debe evaluar desempeño del SGC y oportunidades (cláusula 9.3)."},
+    {id:268, type:"fill", q:"Las auditorías internas deben ser planificadas considerando la _____ y la importancia de los procesos.", correct:"frecuencia", expl:"La frecuencia y criticidad deben considerarse (cláusula 9.2)."},
+    {id:269, type:"case", q:"Caso: El programa de auditoría no considera los resultados de auditorías previas. ¿Es conforme?", options:["Sí","No, incumple cláusula 9.2","Depende del auditor","Solo si es pequeña empresa"], correct:1, expl:"No es conforme. Debe considerar resultados previos (cláusula 9.2)."},
+    {id:270, type:"tf", q:"La organización debe reaccionar ante una no conformidad y tomar acciones para controlarla y corregirla.", correct:true, expl:"Verdadero (cláusula 10.2)."},
+    {id:271, type:"mcq", q:"¿Qué elemento es esencial en una acción correctiva efectiva?", options:["Eliminar evidencia","Identificar causa raíz","Ignorar el problema","Delegar sin seguimiento"], correct:1, expl:"Debe identificarse la causa raíz para evitar recurrencia (cláusula 10.2)."},
+    {id:272, type:"case", q:"Caso: Una organización implementa acciones correctivas pero no verifica su eficacia. ¿Qué incumplimiento se presenta?", options:["Cláusula 8.5","Cláusula 10.2","Cláusula 7.1","No hay incumplimiento"], correct:1, expl:"Incumple cláusula 10.2, ya que es obligatorio evaluar la eficacia de las acciones correctivas."},
+    {id:273, type:"tf", q:"La información documentada puede estar en cualquier formato siempre que sea controlada adecuadamente.", correct:true, expl:"Verdadero. ISO 9001:2015 es flexible en cuanto a formatos (cláusula 7.5)."},
+    {id:274, type:"mcq", q:"¿Cuál es el propósito principal del control de cambios en el SGC?", options:["Evitar auditorías","Asegurar que los cambios no afecten negativamente el sistema","Reducir documentación","Eliminar procesos"], correct:1, expl:"El control de cambios asegura la integridad del SGC (cláusula 6.3)."},
+    {id:275, type:"fill", q:"La organización debe asegurar la disponibilidad de _____ adecuada para la operación de sus procesos.", correct:"infraestructura", expl:"Infraestructura adecuada es requisito de la cláusula 7.1.3."},
+    {id:276, type:"case", q:"Caso: Un equipo de medición no ha sido calibrado y se usa en producción. ¿Qué requisito se incumple?", options:["Cláusula 7.1.5","Cláusula 8.2","Cláusula 9.3","No aplica"], correct:0, expl:"Incumple cláusula 7.1.5 sobre control de equipos de seguimiento y medición."},
+    {id:277, type:"tf", q:"El conocimiento organizacional debe mantenerse y ponerse a disposición cuando sea necesario.", correct:true, expl:"Verdadero (cláusula 7.1.6)."},
+    {id:278, type:"mcq", q:"¿Qué se debe hacer cuando un proceso externo afecta la conformidad del producto?", options:["Ignorarlo","Controlarlo y evaluarlo","Delegarlo completamente","Eliminarlo sin análisis"], correct:1, expl:"Debe ser controlado según cláusula 8.4."},
+    {id:279, type:"fill", q:"Los criterios de aceptación deben ser definidos para asegurar la _____ de los productos y servicios.", correct:"conformidad", expl:"Esto asegura que se cumplan requisitos (cláusula 8.6)."},
+    {id:280, type:"case", q:"Caso: La organización no registra quién autorizó la liberación del producto. ¿Es conforme?", options:["Sí","No, incumple cláusula 8.6","Depende del cliente","Solo si es servicio"], correct:1, expl:"Debe existir evidencia de autorización de liberación (cláusula 8.6)."},
+    {id:281, type:"mcq", q:"¿Cuál es el objetivo del análisis de datos en el SGC?", options:["Solo archivar información","Demostrar conformidad y evaluar eficacia del sistema","Reducir auditorías","Eliminar registros"], correct:1, expl:"El análisis de datos permite evaluar desempeño y eficacia (cláusula 9.1.3)."},
+    {id:282, type:"case", q:"Caso: La organización analiza datos, pero no utiliza los resultados para tomar decisiones. ¿Es conforme?", options:["Sí","No, incumple cláusula 9.1.3","Depende del auditor","Solo si hay auditoría"], correct:1, expl:"No cumple. El análisis debe usarse para la toma de decisiones (cláusula 9.1.3)."},
+    {id:283, type:"tf", q:"La mejora continua implica únicamente acciones correctivas.", correct:false, expl:"Falso. Incluye mejoras incrementales, innovación y optimización (cláusula 10.3)."},
+    {id:284, type:"mcq", q:"¿Qué elemento es clave para asegurar la trazabilidad cuando es un requisito?", options:["Etiquetado y registros","Solo memoria del operario","Correo electrónico","Factura"], correct:0, expl:"La trazabilidad se asegura mediante identificación y registros (cláusula 8.5.2)."},
+    {id:285, type:"fill", q:"La organización debe determinar los métodos para el seguimiento, medición, análisis y _____ del SGC.", correct:"evaluación", expl:"Cláusula 9.1 establece estos requisitos."},
+    {id:286, type:"case", q:"Caso: Un proceso crítico no tiene criterios definidos de aceptación. ¿Cumple con la norma?", options:["Sí","No, incumple cláusula 8.1","Depende del cliente","Solo si hay inspección final"], correct:1, expl:"Incumple la planificación y control operacional (cláusula 8.1)."},
+    {id:287, type:"tf", q:"La satisfacción del cliente debe ser monitoreada como parte del desempeño del SGC.", correct:true, expl:"Verdadero (cláusula 9.1.2)."},
+    {id:288, type:"mcq", q:"¿Qué debe hacerse cuando se identifica una no conformidad?", options:["Ignorarla","Registrar, analizar y tomar acciones","Ocultarla","Delegarla sin seguimiento"], correct:1, expl:"Debe gestionarse completamente según cláusula 10.2."},
+    {id:289, type:"fill", q:"La alta dirección debe asegurar la _____ del enfoque al cliente en toda la organización.", correct:"integración", expl:"El enfoque al cliente debe integrarse en procesos (cláusula 5.1.2)."},
+    {id:290, type:"case", q:"Caso: La organización no evalúa periódicamente a sus proveedores. ¿Es conforme?", options:["Sí","No, incumple cláusula 8.4","Solo si son antiguos","Depende del contrato"], correct:1, expl:"Debe evaluarlos continuamente (cláusula 8.4)."},
+    {id:291, type:"tf", q:"La información documentada debe protegerse contra pérdida de confidencialidad e integridad.", correct:true, expl:"Verdadero (cláusula 7.5.3)."},
+    {id:292, type:"mcq", q:"¿Cuál es el propósito del control de salidas no conformes?", options:["Eliminar registros","Prevenir uso o entrega no intencionada","Reducir costos","Acelerar producción"], correct:1, expl:"Evitar que productos no conformes lleguen al cliente (cláusula 8.7)."},
+    {id:293, type:"case", q:"Caso: Un laboratorio utiliza métodos no validados para análisis críticos. ¿Qué principio se ve afectado?", options:["Enfoque al cliente","Toma de decisiones basada en evidencia","Liderazgo","Relación con proveedores"], correct:1, expl:"Se afecta la confiabilidad de los resultados (evidencia)."},
+    {id:294, type:"mcq", q:"En una planta de alimentos, ¿qué requisito es clave para evitar contaminación cruzada?", options:["Control ambiental y de procesos","Solo limpieza visual","Uso de uniforme","Control financiero"], correct:0, expl:"El control ambiental y de procesos es esencial (relacionado con cláusula 7.1 y 8.5)."},
+    {id:295, type:"case", q:"Caso: En una farmacéutica, los registros de lote no son legibles. ¿Qué incumplimiento aplica?", options:["Cláusula 7.5","Cláusula 8.2","Cláusula 6.1","No aplica"], correct:0, expl:"La información documentada debe ser legible (cláusula 7.5)."},
+    {id:296, type:"tf", q:"El pensamiento basado en riesgos sustituye completamente las acciones preventivas.", correct:true, expl:"Verdadero. ISO 9001:2015 integra la prevención mediante riesgos."},
+    {id:297, type:"mcq", q:"¿Qué evidencia demuestra competencia del personal?", options:["Diplomas únicamente","Evaluación, formación y experiencia documentada","Solo asistencia","Ninguna"], correct:1, expl:"La competencia se demuestra con múltiples evidencias (cláusula 7.2)."},
+    {id:298, type:"case", q:"Caso: No se documenta el alcance del SGC. ¿Es conforme?", options:["Sí","No, incumple cláusula 4.3","Depende del auditor","Solo en grandes empresas"], correct:1, expl:"El alcance debe documentarse (cláusula 4.3)."},
+    {id:299, type:"fill", q:"La mejora continua del SGC debe basarse en el análisis de datos, auditorías y _____ por la dirección.", correct:"revisión", expl:"La revisión por la dirección impulsa la mejora (cláusula 9.3)."},
+    {id:300, type:"tf", q:"Un proceso puede considerarse eficaz aunque no esté documentado formalmente.", correct:true, expl:"Verdadero, siempre que se controle y cumpla requisitos (enfoque flexible ISO 9001)."},
+    {id:301, type:"mcq", q:"¿Qué se debe hacer antes de implementar cambios significativos en el SGC?", options:["Nada","Planificarlos considerando riesgos y consecuencias","Solo informar","Ejecutarlos directamente"], correct:1, expl:"Cláusula 6.3 exige planificación de cambios."},
+    {id:302, type:"case", q:"Caso: Una empresa mejora continuamente pero no lo evidencia. ¿Cumple con ISO 9001?", options:["Sí","No, falta evidencia documentada","Depende","Solo si lo declara"], correct:1, expl:"La mejora debe evidenciarse (cláusula 10.3)."}
   ]
 };
 
-// ==================== FUNCIONES (NO MODIFICAR) ====================
+// ==================== FUNCIONES ====================
 function goToHome() {
   document.getElementById('quiz-area').style.display = 'none';
   document.getElementById('results-panel').style.display = 'none';
@@ -508,20 +370,16 @@ function startLevel(lvl) {
   currentLevel = lvl;
   currentQuestions = allQuestions[lvl];
   userAnswers = {};
-
   document.getElementById('home-screen').style.display = 'none';
   document.getElementById('quiz-area').style.display = 'block';
   document.getElementById('results-panel').style.display = 'none';
-
   document.getElementById('level-title').textContent = levelsConfig[lvl].name + " — " + currentQuestions.length + " preguntas";
-
   renderQuestions();
 }
 
 function renderQuestions() {
   const container = document.getElementById('questions-container');
   container.innerHTML = '';
-
   currentQuestions.forEach((q, idx) => {
     const card = document.createElement('div');
     card.className = 'question-card';
@@ -530,10 +388,8 @@ function renderQuestions() {
         <div class="q-num">${idx + 1}</div>
         <div class="q-text">${q.q}</div>
       </div>`;
-
     const optsDiv = document.createElement('div');
     optsDiv.className = 'options';
-
     if (q.type === "tf") {
       optsDiv.append(createOption("Verdadero", "true", q.id));
       optsDiv.append(createOption("Falso", "false", q.id));
@@ -552,7 +408,6 @@ function renderQuestions() {
     card.appendChild(optsDiv);
     container.appendChild(card);
   });
-
   document.getElementById('progress-info').textContent = `0 / ${currentQuestions.length}`;
 }
 
@@ -572,19 +427,15 @@ function createOption(text, value, qId) {
 function gradeQuiz() {
   let correctCount = 0;
   let html = `<h2>Resultados — ${levelsConfig[currentLevel].name}</h2>`;
-
   currentQuestions.forEach(q => {
     const userAns = userAnswers[q.id];
     let isCorrect = false;
-
     if (q.type === "tf" || q.type === "mcq" || q.type === "case") {
       isCorrect = String(userAns) === String(q.correct);
     } else if (q.type === "fill") {
       isCorrect = userAns && userAns.toLowerCase() === q.correct.toLowerCase();
     }
-
     if (isCorrect) correctCount++;
-
     html += `
       <div style="padding:18px;margin-bottom:14px;border-radius:8px;background:${isCorrect?'#e8f5e9':'#ffebee'};border-left:6px solid ${isCorrect?'#4caf50':'#f44336'}">
         <strong>Pregunta ${q.id}:</strong> ${q.q}<br>
@@ -592,10 +443,8 @@ function gradeQuiz() {
         <strong style="color:${isCorrect?'#2e7d32':'#c62828'}">Respuesta correcta: ${q.expl}</strong>
       </div>`;
   });
-
   const percentage = Math.round((correctCount / currentQuestions.length) * 100);
   html = html.replace('<h2>', `<p style="font-size:20px;margin:20px 0">Puntaje obtenido: <strong>${percentage}</strong> / 100 puntos</p><h2>`);
-
   document.getElementById('results-panel').innerHTML = html;
   document.getElementById('results-panel').style.display = 'block';
   document.getElementById('results-panel').scrollIntoView({behavior:'smooth'});
@@ -625,6 +474,12 @@ window.onload = () => {
 
 
 
+
+
+
+
+
+  
 
 
 
