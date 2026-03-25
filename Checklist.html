@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Checklist Cumplimiento — ISO 9001:2015</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --g900:#1a3d05;--g800:#2a5f0c;--g700:#357a10;--g600:#3f9214;--g500:#52b520;--g400:#74cc40;--g300:#9ddc70;--g200:#c6edab;--g100:#e4f7d0;--g50:#f2fbe8;
+  --t800:#084033;--t600:#0d6b55;--t400:#13a07e;--t200:#82ddc5;--t100:#c5f0e4;--t50:#edfaf5;
+  --a800:#6b3500;--a600:#b05800;--a400:#e07815;--a200:#f5b870;--a100:#fde8c5;--a50:#fff7ed;
+  --r800:#5a0f0f;--r600:#991a1a;--r500:#c42222;--r400:#dd3333;--r200:#f5a0a0;--r100:#fdd0d0;--r50:#fff0f0;
+  --b800:#0a2d5e;--b600:#1050a0;--b400:#2b7fd4;--b200:#8dc4ef;--b100:#d0e9f9;--b50:#edf6fd;
+  --gray900:#1c1c1a;--gray800:#2e2e2b;--gray700:#3d3d3a;--gray600:#595955;--gray500:#737370;--gray400:#8a8a85;--gray300:#a8a8a3;--gray200:#d0cfc8;--gray100:#e8e7e0;--gray50:#f6f5f0;
+  --white:#ffffff;--page:#f0ede6;
+  --font:'Plus Jakarta Sans',sans-serif;
+  --r8:8px;--r12:12px;--r16:16px;--r20:20px;
+  --sh:0 2px 12px rgba(0,0,0,.07),0 1px 3px rgba(0,0,0,.05);
+  --sh-md:0 4px 24px rgba(0,0,0,.1),0 2px 6px rgba(0,0,0,.06);
+  --sh-lg:0 8px 40px rgba(0,0,0,.12),0 4px 12px rgba(0,0,0,.08);
+}
+img,svg,video{max-width:100%}
+*{min-width:0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--page);color:var(--gray900);line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact;overflow-x:hidden}
+.action-bar{background:var(--g800);padding:11px 28px;display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:0;z-index:999;box-shadow:0 2px 16px rgba(0,0,0,.25)}
+.ab-info{display:flex;align-items:center;gap:10px}
+.ab-dot{width:8px;height:8px;background:var(--g400);border-radius:50%}
+.ab-info span{font-size:12.5px;color:var(--g200);font-weight:500}
+.ab-btns{display:flex;gap:8px;align-items:center}
+.ab-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:var(--font);border:none;transition:all .15s;white-space:nowrap}
+.ab-btn-white{background:var(--white);color:var(--g800)}
+.ab-btn-white:hover{background:var(--g100)}
+.ab-btn-ghost{background:rgba(255,255,255,.1);color:var(--g200);border:1px solid rgba(255,255,255,.2)}
+.ab-btn-ghost:hover{background:rgba(255,255,255,.18)}
+.ab-btn-danger{background:rgba(220,50,50,.15);color:#ffaaaa;border:1px solid rgba(220,50,50,.3)}
+.ab-btn-danger:hover{background:rgba(220,50,50,.25)}
+.page{max-width:1060px;margin:0 auto;padding:32px 22px 72px;overflow-x:hidden}
+.hdr{background:linear-gradient(135deg,var(--g800) 0%,var(--g700) 45%,var(--t800) 100%);border-radius:20px;overflow:hidden;margin-bottom:26px;box-shadow:var(--sh-lg);position:relative}
+.hdr-body{padding:32px 40px 26px;position:relative;z-index:1}
+.hdr-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.htag{padding:3px 11px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;border:1.5px solid}
+.ht-main{background:var(--g500);border-color:var(--g400);color:#fff}
+.ht-out{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.82)}
+.hdr-row{display:flex;align-items:flex-start;gap:18px}
+.hdr-ic{width:60px;height:60px;background:rgba(255,255,255,.13);border-radius:16px;border:1.5px solid rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hdr-txt h1{font-size:27px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:7px}
+.hdr-txt p{font-size:13.5px;color:rgba(255,255,255,.72);line-height:1.6}
+.hdr-foot{background:rgba(0,0,0,.2);padding:16px 40px;display:flex;gap:0;border-top:1px solid rgba(255,255,255,.1);flex-wrap:wrap}
+.hstat{flex:1;min-width:100px;text-align:center;padding:4px 0;position:relative}
+.hstat+.hstat::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);height:28px;width:1px;background:rgba(255,255,255,.15)}
+.hstat .n{font-size:24px;font-weight:800;color:var(--g400);line-height:1}
+.hstat .l{font-size:10.5px;color:rgba(255,255,255,.6);margin-top:3px;font-weight:500}
+.score-panel{background:var(--white);border-radius:var(--r16);padding:22px 28px;margin-bottom:22px;border:1.5px solid var(--gray100);box-shadow:var(--sh-md);display:flex;gap:28px;align-items:center;flex-wrap:wrap;min-width:0}
+.score-circle-wrap{flex-shrink:0;position:relative;width:120px;height:120px}
+.score-circle-wrap svg{width:120px;height:120px;transform:rotate(-90deg)}
+.sc-bg{fill:none;stroke:var(--gray100);stroke-width:10}
+.sc-fill{fill:none;stroke-width:10;stroke-linecap:round;transition:stroke-dashoffset .6s ease,stroke .4s ease}
+.score-num{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
+.score-num .pct{font-size:26px;font-weight:800;line-height:1;transition:color .4s}
+.score-num .lbl{font-size:10px;color:var(--gray400);font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.score-meta{flex:1;min-width:200px}
+.score-meta h2{font-size:16px;font-weight:700;color:var(--gray900);margin-bottom:10px}
+.score-bars{display:flex;flex-direction:column;gap:7px}
+.sbar-row{display:flex;align-items:center;gap:10px}
+.sbar-label{font-size:12px;color:var(--gray600);width:100px;flex-shrink:0;display:flex;align-items:center;gap:6px}
+.sbar-track{flex:1;height:9px;background:var(--gray100);border-radius:5px;overflow:hidden}
+.sbar-fill{height:100%;border-radius:5px;transition:width .5s ease}
+.sbar-pct{font-size:12px;color:var(--gray600);width:38px;text-align:right;flex-shrink:0}
+.sb-green{background:var(--g500)}
+.sb-red{background:var(--r500)}
+.sb-gray{background:var(--gray300)}
+.score-verdict{margin-left:auto;text-align:center;flex-shrink:0;min-width:140px}
+.verdict-badge{display:inline-block;padding:8px 20px;border-radius:30px;font-size:13px;font-weight:700;border:2px solid;transition:all .4s}
+.vb-excelente{background:var(--g50);border-color:var(--g400);color:var(--g800)}
+.vb-bueno{background:var(--b50);border-color:var(--b400);color:var(--b800)}
+.vb-regular{background:var(--a50);border-color:var(--a400);color:var(--a800)}
+.vb-critico{background:var(--r50);border-color:var(--r400);color:var(--r800)}
+.verdict-label{font-size:11px;color:var(--gray400);margin-top:5px;font-weight:500}
+.score-counters{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap}
+.sc-item{text-align:center;background:var(--gray50);border-radius:var(--r8);padding:10px 16px;flex:1;min-width:80px}
+.sc-item .v{font-size:22px;font-weight:800;line-height:1}
+.sc-item .l{font-size:10.5px;color:var(--gray500);margin-top:3px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.sc-green .v{color:var(--g700)}
+.sc-red .v{color:var(--r500)}
+.sc-gray .v{color:var(--gray400)}
+.sc-total .v{color:var(--b600)}
+.machine-card{background:var(--white);border-radius:var(--r16);padding:22px 26px;margin-bottom:22px;border:1.5px solid var(--gray100);box-shadow:var(--sh)}
+.card-header{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:14px;border-bottom:1.5px dashed var(--gray100)}
+.card-header-ic{width:38px;height:38px;background:var(--g50);border:1.5px solid var(--g200);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.card-header h2{font-size:15px;font-weight:700;color:var(--gray900)}
+.card-header p{font-size:12px;color:var(--gray400);margin-top:1px}
+.form-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.form-grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px}
+.fgroup{display:flex;flex-direction:column;gap:5px}
+.fgroup label{font-size:11.5px;font-weight:700;color:var(--gray600);text-transform:uppercase;letter-spacing:.07em;display:flex;align-items:center;gap:6px}
+.fgroup label span.req{color:var(--r500);font-size:13px}
+.finput,.fselect,.ftextarea{width:100%;border:1.5px solid var(--gray200);border-radius:var(--r8);padding:9px 13px;font-family:var(--font);font-size:13.5px;color:var(--gray900);background:var(--white);outline:none;transition:border-color .15s,box-shadow .15s}
+.finput:focus,.fselect:focus,.ftextarea:focus{border-color:var(--g500);box-shadow:0 0 0 3px rgba(82,181,32,.12)}
+.ftextarea{min-height:80px;resize:vertical;line-height:1.6}
+.sdiv{display:flex;align-items:center;gap:10px;margin:24px 0 13px}
+.sdiv-ic{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sdiv h3{font-size:11.5px;font-weight:800;color:var(--gray600);text-transform:uppercase;letter-spacing:.1em;white-space:nowrap}
+.sdiv-line{flex:1;height:1.5px;background:var(--gray200)}
+.sdiv-count{font-size:11px;font-weight:700;color:var(--white);background:var(--gray400);border-radius:20px;padding:2px 9px;flex-shrink:0}
+.check-item{background:var(--white);border-radius:var(--r12);margin-bottom:9px;border:1.5px solid var(--gray100);box-shadow:var(--sh);overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.check-item:hover{box-shadow:var(--sh-md)}
+.check-item.ci-cumple{border-left:4px solid var(--g500);border-color:var(--g200)}
+.check-item.ci-no{border-left:4px solid var(--r500);border-color:var(--r200)}
+.check-item.ci-na{border-left:4px solid var(--gray300);border-color:var(--gray200);opacity:.75}
+.ci-body{padding:14px 18px;display:flex;gap:14px;align-items:flex-start}
+.ci-code{flex-shrink:0;width:36px;height:36px;border-radius:8px;background:var(--gray50);border:1px solid var(--gray200);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--gray500)}
+.check-item.ci-cumple .ci-code{background:var(--g50);border-color:var(--g300);color:var(--g700)}
+.check-item.ci-no .ci-code{background:var(--r50);border-color:var(--r200);color:var(--r600)}
+.check-item.ci-na .ci-code{background:var(--gray100);border-color:var(--gray200);color:var(--gray400)}
+.ci-text{flex:1}
+.ci-text h4{font-size:13.5px;font-weight:600;color:var(--gray900);line-height:1.45;margin-bottom:4px}
+.ci-text p{font-size:12px;color:var(--gray500);line-height:1.5;font-style:italic}
+.ci-radios{display:flex;gap:7px;flex-shrink:0;align-items:center;flex-wrap:wrap}
+.cir-btn{display:flex;align-items:center;gap:5px;padding:7px 13px;border-radius:7px;border:1.5px solid var(--gray200);background:var(--white);cursor:pointer;font-family:var(--font);font-size:12px;font-weight:600;color:var(--gray500);transition:all .15s;white-space:nowrap;user-select:none}
+.cir-btn:hover{background:var(--gray50)}
+.cir-btn input{display:none}
+.cir-btn.active-C{background:var(--g50);border-color:var(--g400);color:var(--g800)}
+.cir-btn.active-N{background:var(--r50);border-color:var(--r400);color:var(--r800)}
+.cir-btn.active-NA{background:var(--gray100);border-color:var(--gray400);color:var(--gray700)}
+.obs-card{background:var(--white);border-radius:var(--r16);padding:22px 26px;margin-top:24px;border:1.5px solid var(--gray100);box-shadow:var(--sh)}
+@media print{
+  @page{size:A4 portrait;margin:10mm 8mm}
+}
+@media(max-width:900px){
+  .action-bar { padding:10px 14px; flex-wrap:wrap; gap:8px; }
+  .page { padding:16px 12px 52px; }
+  .hdr-body { padding:20px 18px 16px; }
+  .hdr-row { flex-direction:column; gap:12px; }
+  .form-grid { grid-template-columns:1fr; gap:10px; }
+  .form-grid-2 { grid-template-columns:1fr; gap:10px; }
+  .ci-radios { width:100%; flex-direction:row; justify-content:flex-start; flex-wrap:wrap; padding-top:8px; border-top:1px dashed var(--gray100); gap:6px; }
+  .cir-btn { flex:1; min-width:calc(33% - 4px); justify-content:center; font-size:12px; padding:8px 6px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ACTION BAR -->
+<div class="action-bar">
+  <div class="ab-info">
+    <div class="ab-dot"></div>
+    <span>Checklist de Cumplimiento · ISO 9001:2015</span>
+  </div>
+  <div class="ab-btns">
+    <button class="ab-btn ab-btn-danger" onclick="resetAll()">Reiniciar</button>
+    <button class="ab-btn ab-btn-ghost" onclick="window.print()">Imprimir</button>
+    <button class="ab-btn ab-btn-white" onclick="window.print()">Descargar PDF</button>
+  </div>
+</div>
+
+<div class="page">
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-body">
+    <div class="hdr-tags">
+      <span class="htag ht-main">ISO 9001:2015</span>
+      <span class="htag ht-out">Checklist de Cumplimiento</span>
+      <span class="htag ht-out">Sistema de Gestión de la Calidad</span>
+    </div>
+    <div class="hdr-row">
+      <div class="hdr-ic">
+        <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
+          <rect x="4" y="2" width="20" height="28" rx="3" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.4)" stroke-width="1.3"/>
+          <path d="M9 10h10M9 15h7M9 20h9" stroke="rgba(255,255,255,.65)" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="25" cy="24" r="6" fill="#52b520"/>
+          <path d="M22 24l2 2 4-4" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="hdr-txt">
+        <h1>Checklist de Cumplimiento<br>ISO 9001:2015</h1>
+        <p>Evaluación completa de los requisitos de la norma ISO 9001:2015 (cláusulas 4 a 10). Califica cada criterio como <strong>Cumple</strong>, <strong>No Cumple</strong> o <strong>No Aplica</strong>. Los ítems N/A se excluyen del porcentaje de cumplimiento.</p>
+      </div>
+    </div>
+  </div>
+  <div class="hdr-foot">
+    <div class="hstat"><div class="n" id="stat-total">85</div><div class="l">Criterios totales</div></div>
+    <div class="hstat"><div class="n" id="stat-aplica">0</div><div class="l">Aplican</div></div>
+    <div class="hstat"><div class="n" id="stat-cumple">0</div><div class="l">Cumplen</div></div>
+    <div class="hstat"><div class="n" id="stat-nocumple">0</div><div class="l">No cumplen</div></div>
+    <div class="hstat"><div class="n" id="stat-na">0</div><div class="l">No aplican</div></div>
+    <div class="hstat"><div class="n" id="stat-pct">—</div><div class="l">% Cumplimiento</div></div>
+  </div>
+</div>
+
+<!-- SCORE PANEL -->
+<div class="score-panel">
+  <div class="score-circle-wrap">
+    <svg viewBox="0 0 120 120">
+      <circle class="sc-bg" cx="60" cy="60" r="50"/>
+      <circle class="sc-fill" id="sc-ring" cx="60" cy="60" r="50" stroke="var(--g500)" stroke-dasharray="314.16" stroke-dashoffset="314.16"/>
+    </svg>
+    <div class="score-num">
+      <div class="pct" id="sc-pct-big" style="color:var(--gray300)">—</div>
+      <div class="lbl">Cumplimiento</div>
+    </div>
+  </div>
+  <div class="score-meta">
+    <h2>Resumen de evaluación</h2>
+    <div class="score-bars">
+      <div class="sbar-row"><div class="sbar-label"><span style="width:10px;height:10px;background:var(--g500);border-radius:50%;display:inline-block"></span>Cumple</div><div class="sbar-track"><div class="sbar-fill sb-green" id="bar-c" style="width:0%"></div></div><div class="sbar-pct" id="bpct-c">0%</div></div>
+      <div class="sbar-row"><div class="sbar-label"><span style="width:10px;height:10px;background:var(--r500);border-radius:50%;display:inline-block"></span>No Cumple</div><div class="sbar-track"><div class="sbar-fill sb-red" id="bar-n" style="width:0%"></div></div><div class="sbar-pct" id="bpct-n">0%</div></div>
+      <div class="sbar-row"><div class="sbar-label"><span style="width:10px;height:10px;background:var(--gray300);border-radius:50%;display:inline-block"></span>No Aplica</div><div class="sbar-track"><div class="sbar-fill sb-gray" id="bar-na" style="width:0%"></div></div><div class="sbar-pct" id="bpct-na">0%</div></div>
+    </div>
+    <div class="score-counters">
+      <div class="sc-item sc-green"><div class="v" id="cnt-c">0</div><div class="l">✅ Cumple</div></div>
+      <div class="sc-item sc-red"><div class="v" id="cnt-n">0</div><div class="l">❌ No Cumple</div></div>
+      <div class="sc-item sc-gray"><div class="v" id="cnt-na2">0</div><div class="l">— No Aplica</div></div>
+      <div class="sc-item sc-total"><div class="v" id="cnt-tot">85</div><div class="l">📋 Total</div></div>
+    </div>
+  </div>
+  <div class="score-verdict">
+    <div class="verdict-badge vb-critico" id="verdict-badge">Sin evaluar</div>
+    <div class="verdict-label" id="verdict-label">Complete los criterios</div>
+  </div>
+</div>
+
+<!-- FICHA DE IDENTIFICACIÓN -->
+<div class="machine-card">
+  <div class="card-header">
+    <div class="card-header-ic">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--g700)" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+    </div>
+    <div>
+      <h2>Identificación de la auditoría / Organización</h2>
+      <p>Registre los datos antes de completar el checklist</p>
+    </div>
+  </div>
+  <div class="form-grid">
+    <div class="fgroup"><label>🏢 Nombre de la organización <span class="req">*</span></label><input class="finput" id="f-org" type="text" placeholder="Ej. Mi Empresa S.A."></div>
+    <div class="fgroup"><label>📍 Alcance del SGC</label><input class="finput" id="f-alcance" type="text" placeholder="Ej. Diseño, fabricación y venta de productos X"></div>
+    <div class="fgroup"><label>📅 Fecha del checklist <span class="req">*</span></label><input class="finput" id="f-fecha" type="date"></div>
+  </div>
+  <div class="form-grid" style="margin-top:14px">
+    <div class="fgroup"><label>👤 Auditor / Responsable <span class="req">*</span></label><input class="finput" id="f-persona" type="text" placeholder="Nombre completo"></div>
+    <div class="fgroup"><label>💼 Cargo</label><input class="finput" id="f-cargo" type="text" placeholder="Ej. Auditor interno / Gerente de Calidad"></div>
+  </div>
+</div>
+
+<!-- SECCIONES -->
+<div class="sdiv">
+  <div class="sdiv-ic" style="background:var(--g100)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--g700)" stroke-width="2.2" stroke-linecap="round"><path d="M9 12h6M9 16h6M7 8h.01M17 4H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2z"/></svg></div>
+  <h3>Cláusula 4 — Contexto de la organización</h3>
+  <span class="sdiv-count" id="cnt-sec4">8 criterios</span>
+  <div class="sdiv-line"></div>
+</div>
+<div id="items-sec4"></div>
+
+<div class="sdiv">
+  <div class="sdiv-ic" style="background:var(--t100)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--t800)" stroke-width="2.2" stroke-linecap="round"><path d="M12 22V12M4 6l4-2 4 2 4-2 4 2"/><path d="M12 12l-4-4M12 12l4-4"/></svg></div>
+  <h3>Cláusula 5 — Liderazgo</h3>
+  <span class="sdiv-count" id="cnt-sec5">9 criterios</span>
+  <div class="sdiv-line"></div>
+</div>
+<div id="items-sec5"></div>
+
+<div class="sdiv">
+  <div class="sdiv-ic" style="background:var(--b100)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--b800)" stroke-width="2.2" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+  <h3>Cláusula 6 — Planificación</h3>
+  <span class="sdiv-count" id="cnt-sec6">10 criterios</span>
+  <div class="sdiv-line"></div>
+</div>
+<div id="items-sec6"></div>
+
+<div class="sdiv">
+  <div class="sdiv-ic" style="background:var(--a100)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--a800)" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M10.29 3.86L1.82 18"/><path d="M12 9v4M12 17h.01"/></svg></div>
+  <h3>Cláusula 7 — Apoyo</h3>
+  <span class="sdiv-count" id="cnt-sec7">18 criterios</span>
+  <div class="sdiv-line"></div>
+</div>
+<div id="items-sec7"></div>
+
+<div class="sdiv">
+  <div class="sdiv-ic" style="background:var(--g100)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--g700)" stroke-width="2.2" stroke-linecap="round"><path d="M9 12h6M9 16h6M7 8h.01M17 4H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2z"/></svg></div>
+  <h3>Cláusula 8 — Operación</h3>
+  <span class="sdiv-count" id="cnt-sec8">25 criterios</span>
+  <div class="sdiv-line"></div>
+</div>
+<div id="items-sec8"></div>
+
+<div class="sdiv">
+  <div class="sdiv-ic" style="background:var(--t100)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--t800)" stroke-width="2.2" stroke-linecap="round"><path d="M12 22V12M4 6l4-2 4 2 4-2 4 2"/><path d="M12 12l-4-4M12 12l4-4"/></svg></div>
+  <h3>Cláusula 9 — Evaluación del desempeño</h3>
+  <span class="sdiv-count" id="cnt-sec9">10 criterios</span>
+  <div class="sdiv-line"></div>
+</div>
+<div id="items-sec9"></div>
+
+<div class="sdiv">
+  <div class="sdiv-ic" style="background:var(--b100)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--b800)" stroke-width="2.2" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+  <h3>Cláusula 10 — Mejora</h3>
+  <span class="sdiv-count" id="cnt-sec10">5 criterios</span>
+  <div class="sdiv-line"></div>
+</div>
+<div id="items-sec10"></div>
+
+<!-- OBSERVACIONES FINALES -->
+<div class="obs-card">
+  <div class="card-header">
+    <div class="card-header-ic">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--g700)" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    </div>
+    <div>
+      <h2>Observaciones y plan de acción</h2>
+      <p>Registre hallazgos, evidencias, brechas y acciones correctivas</p>
+    </div>
+  </div>
+  <div class="fgroup" style="margin-bottom:14px">
+    <label>📝 Observaciones generales / Evidencias revisadas</label>
+    <textarea class="ftextarea" id="f-obs-general" rows="5" placeholder="Describa evidencias revisadas, fortalezas y áreas de mejora..."></textarea>
+  </div>
+  <div class="form-grid-2">
+    <div class="fgroup">
+      <label>🚨 No conformidades identificadas</label>
+      <textarea class="ftextarea" id="f-obs-nc" rows="4" placeholder="Liste las no conformidades con referencia a la cláusula..."></textarea>
+    </div>
+    <div class="fgroup">
+      <label>🎯 Plan de acción / Acciones correctivas</label>
+      <textarea class="ftextarea" id="f-obs-plan" rows="4" placeholder="Acciones, responsable y fecha límite..."></textarea>
+    </div>
+  </div>
+  <div class="form-grid" style="margin-top:14px">
+    <div class="fgroup"><label>📅 Fecha próxima revisión</label><input class="finput" id="f-proxima" type="date"></div>
+    <div class="fgroup"><label>✍️ Firma del evaluador</label><input class="finput" id="f-firma" type="text" placeholder="Nombre completo"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="margin-top:28px;text-align:center;font-size:11px;color:var(--gray400);border-top:1.5px solid var(--gray200);padding-top:18px;line-height:1.7">
+  Checklist ISO 9001:2015 — Versión adaptada • Basado en los requisitos oficiales de la norma • Para uso interno o auditoría
+</div>
+
+</div>
+
+<script>
+// Datos de criterios (resumidos pero completos y prácticos)
+const CRITERIOS = {
+  sec4: [ // Cláusula 4
+    {id:1, title:'4.1 Comprensión de la organización y su contexto (factores internos/externos identificados)', hint:'Se han determinado y revisado los factores que afectan al SGC.'},
+    {id:2, title:'4.2 Comprensión de las necesidades y expectativas de las partes interesadas', hint:'Partes interesadas relevantes y sus requisitos están identificados y monitoreados.'},
+    {id:3, title:'4.3 Determinación del alcance del SGC (documentado)', hint:'Alcance incluye justificación de exclusiones (si aplica).'},
+    {id:4, title:'4.4 Sistema de gestión de la calidad y sus procesos (enfoque por procesos)', hint:'Procesos identificados, secuencia, interacción, criterios y recursos definidos.'}
+  ],
+  sec5: [ // Cláusula 5
+    {id:5, title:'5.1 Liderazgo y compromiso de la alta dirección', hint:'Demostración de liderazgo en el SGC y enfoque al cliente.'},
+    {id:6, title:'5.1.2 Enfoque al cliente', hint:'Se asegura que los requisitos del cliente se cumplen y se mejora la satisfacción.'},
+    {id:7, title:'5.2 Política de calidad (establecida, comunicada y mantenida)', hint:'Política adecuada al propósito y marco de referencia para objetivos.'},
+    {id:8, title:'5.3 Roles, responsabilidades y autoridades (asignados y comunicados)', hint:'Incluye responsabilidad de asegurar que el SGC cumple los requisitos.'}
+  ],
+  sec6: [ // Cláusula 6
+    {id:9, title:'6.1 Acciones para abordar riesgos y oportunidades', hint:'Riesgos y oportunidades determinados y acciones planificadas.'},
+    {id:10, title:'6.2 Objetivos de calidad y planificación para lograrlos', hint:'Objetivos medibles, coherentes con la política y monitoreados.'},
+    {id:11, title:'6.3 Planificación de cambios', hint:'Cambios al SGC planificados de forma controlada.'}
+  ],
+  sec7: [ // Cláusula 7 (más ítems por ser extensa)
+    {id:12, title:'7.1 Recursos (personas, infraestructura, ambiente, recursos de seguimiento)'},
+    {id:13, title:'7.1.6 Conocimiento de la organización'},
+    {id:14, title:'7.2 Competencia (determinación, evaluación y registro)'},
+    {id:15, title:'7.3 Toma de conciencia'},
+    {id:16, title:'7.4 Comunicación'},
+    {id:17, title:'7.5 Información documentada (creación, control y retención)'}
+  ],
+  sec8: [ // Cláusula 8 (la más extensa)
+    {id:18, title:'8.1 Planificación y control operacional'},
+    {id:19, title:'8.2 Requisitos para productos y servicios (comunicación, determinación y revisión)'},
+    {id:20, title:'8.3 Diseño y desarrollo (planificación, entradas, controles, salidas, cambios)'},
+    {id:21, title:'8.4 Control de procesos, productos y servicios suministrados externamente'},
+    {id:22, title:'8.5 Producción y provisión del servicio (control, identificación, trazabilidad, preservación)'},
+    {id:23, title:'8.6 Liberación de productos y servicios'},
+    {id:24, title:'8.7 Control de salidas no conformes'}
+  ],
+  sec9: [ // Cláusula 9
+    {id:25, title:'9.1 Seguimiento, medición, análisis y evaluación (incluye satisfacción del cliente)'},
+    {id:26, title:'9.2 Auditoría interna'},
+    {id:27, title:'9.3 Revisión por la dirección (entradas y salidas)'}
+  ],
+  sec10: [ // Cláusula 10
+    {id:28, title:'10.1 Generalidades (mejora)'},
+    {id:29, title:'10.2 No conformidad y acción correctiva'},
+    {id:30, title:'10.3 Mejora continua'}
+  ]
+};
+
+// Estado global
+const state = {};
+
+// Inicializar
+function init(){
+  const hoy = new Date().toISOString().split('T')[0];
+  document.getElementById('f-fecha').value = hoy;
+
+  Object.keys(CRITERIOS).forEach(sec => {
+    const cont = document.getElementById('items-' + sec);
+    CRITERIOS[sec].forEach(c => {
+      state[c.id] = 'none';
+      cont.appendChild(buildItem(c, sec));
+    });
+  });
+  updateScore();
+}
+
+function buildItem(c, sec){
+  const div = document.createElement('div');
+  div.className = 'check-item';
+  div.id = 'item-' + c.id;
+  div.innerHTML = `
+    <div class="ci-body">
+      <div class="ci-code" id="code-${c.id}">${c.id}</div>
+      <div class="ci-text">
+        <h4>${c.title}</h4>
+        <p>${c.hint || ''}</p>
+      </div>
+      <div class="ci-radios">
+        <label class="cir-btn" id="rb-C-${c.id}" onclick="setVal(${c.id},'C')">Cumple</label>
+        <label class="cir-btn" id="rb-N-${c.id}" onclick="setVal(${c.id},'N')">No Cumple</label>
+        <label class="cir-btn" id="rb-NA-${c.id}" onclick="setVal(${c.id},'NA')">N/A</label>
+      </div>
+    </div>`;
+  return div;
+}
+
+function setVal(id, val){
+  state[id] = val;
+  ['C','N','NA'].forEach(v => {
+    const btn = document.getElementById('rb-' + v + '-' + id);
+    if(btn) btn.classList.toggle('active-' + v, v === val);
+  });
+  const card = document.getElementById('item-' + id);
+  card.classList.remove('ci-cumple','ci-no','ci-na');
+  if(val === 'C') card.classList.add('ci-cumple');
+  else if(val === 'N') card.classList.add('ci-no');
+  else if(val === 'NA') card.classList.add('ci-na');
+  updateScore();
+}
+
+function updateScore(){
+  let cumple=0, nocumple=0, na=0, total=0;
+  Object.keys(state).forEach(k => {
+    total++;
+    if(state[k]==='C') cumple++;
+    else if(state[k]==='N') nocumple++;
+    else if(state[k]==='NA') na++;
+  });
+  const aplica = cumple + nocumple;
+  const pct = aplica > 0 ? Math.round((cumple / aplica) * 100) : 0;
+
+  // Actualizar estadísticas
+  document.getElementById('stat-aplica').textContent = aplica;
+  document.getElementById('stat-cumple').textContent = cumple;
+  document.getElementById('stat-nocumple').textContent = nocumple;
+  document.getElementById('stat-na').textContent = na;
+  document.getElementById('stat-pct').textContent = pct + '%';
+
+  document.getElementById('cnt-c').textContent = cumple;
+  document.getElementById('cnt-n').textContent = nocumple;
+  document.getElementById('cnt-na2').textContent = na;
+  document.getElementById('cnt-tot').textContent = total;
+
+  // Barras
+  const pctC = aplica > 0 ? Math.round((cumple / aplica) * 100) : 0;
+  document.getElementById('bar-c').style.width = pctC + '%';
+  document.getElementById('bpct-c').textContent = pctC + '%';
+  document.getElementById('bar-n').style.width = (100 - pctC) + '%';
+  document.getElementById('bpct-n').textContent = (100 - pctC) + '%';
+  document.getElementById('bar-na').style.width = Math.round((na / total) * 100) + '%';
+
+  // Círculo
+  const ring = document.getElementById('sc-ring');
+  const bigPct = document.getElementById('sc-pct-big');
+  const circum = 314.16;
+  const offset = circum - (circum * pct / 100);
+  ring.style.strokeDashoffset = offset;
+  bigPct.textContent = pct + '%';
+  let color = pct >= 85 ? 'var(--g600)' : pct >= 65 ? 'var(--b600)' : pct >= 45 ? 'var(--a600)' : 'var(--r600)';
+  ring.style.stroke = color;
+  bigPct.style.color = color;
+
+  // Veredicto
+  const vbadge = document.getElementById('verdict-badge');
+  const vlabel = document.getElementById('verdict-label');
+  if(pct >= 85){ vbadge.className = 'verdict-badge vb-excelente'; vbadge.textContent = '🏆 Excelente'; vlabel.textContent = 'Cumplimiento óptimo'; }
+  else if(pct >= 65){ vbadge.className = 'verdict-badge vb-bueno'; vbadge.textContent = '👍 Aceptable'; vlabel.textContent = 'Requiere mejoras menores'; }
+  else if(pct >= 45){ vbadge.className = 'verdict-badge vb-regular'; vbadge.textContent = '⚠️ Regular'; vlabel.textContent = 'Brechas significativas'; }
+  else { vbadge.className = 'verdict-badge vb-critico'; vbadge.textContent = '🚨 Crítico'; vlabel.textContent = 'Acción inmediata requerida'; }
+}
+
+function resetAll(){
+  if(!confirm('¿Reiniciar todas las respuestas?')) return;
+  Object.keys(state).forEach(k => state[k]='none');
+  document.querySelectorAll('.cir-btn').forEach(btn => btn.classList.remove('active-C','active-N','active-NA'));
+  document.querySelectorAll('.check-item').forEach(card => card.classList.remove('ci-cumple','ci-no','ci-na'));
+  updateScore();
+}
+
+init();
+</script>
+</body>
+</html>
