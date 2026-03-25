@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuestionario de Autoevaluación — ISO 9001:2015</title>
+<link href="https://fonts.googleapis.com/css2?family=Salsa&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #9b7ed9;          /* Morado pastel principal */
+    --primary-dark: #6f4e9c;     /* MOrad más oscuro para texto */
+    --light-bg: #e8d9f5;         /* Fondo blanco */
+    --b50:#e6f1fb;--b400:#378add;--b800:#0c447c;
+    --g50:#eaf3de;--g400:#639922;--g600:#3b6d11;
+    --a50:#faeeda;--a200:#ef9f27;--a400:#ba7517;
+    --r50:#fcebeb;--r400:#e24b4a;--r800:#501313;
+    --gray50:#f1efe8;--gray100:#d3d1c7;--gray400:#888780;--gray600:#5f5e5a;
+    --white:#ffffff;--text:#2c2c2a;--text2:#5f5e5a;--text3:#888780;
+    --border:#d3d1c7;--shadow:0 2px 8px rgba(0,0,0,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;min-width:0}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--gray50);color:var(--text);min-height:100vh;padding:0 0 60px}
+
+  .header{background:var(--b800);padding:28px 40px 24px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.15)}
+  .header-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .header-left{display:flex;align-items:center;gap:14px}
+  .badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:600;color:#b5d4f4}
+  .header h1{font-size:20px;font-weight:600;color:#e6f1fb;line-height:1.2}
+  .header p{font-size:12px;color:#b5d4f4;margin-top:2px}
+  .btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;border:none;transition:all .15s}
+  .btn-primary{background:var(--white);color:var(--b800)}
+  .btn-primary:hover{background:#f0f4fa;transform:translateY(-1px);box-shadow:var(--shadow)}
+  .btn-secondary{background:rgba(255,255,255,.12);color:#b5d4f4;border:1px solid rgba(255,255,255,.25)}
+
+  .progress-bar{background:var(--b800);padding:12px 40px}
+  .progress-fill{height:6px;background:#b5d4f4;border-radius:3px;transition:width .4s ease}
+
+  .main{max-width:900px;margin:28px auto 0;padding:0 20px}
+  .score-section,.section{background:var(--white);border-radius:14px;padding:24px 28px;margin-bottom:24px;border:1px solid var(--border);box-shadow:var(--shadow)}
+  .score-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+  .score-metric{text-align:center;padding:14px;background:var(--gray50);border-radius:10px}
+  .score-metric .val{font-size:26px;font-weight:700}
+  .question-card{border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:12px}
+  .radio-opt{display:flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--border);border-radius:7px;cursor:pointer;font-size:12.5px}
+  .radio-opt.sel-C{background:var(--g50);border-color:var(--g400);color:var(--g800)}
+  .radio-opt.sel-P{background:var(--a50);border-color:var(--a200);color:var(--a800)}
+  .radio-opt.sel-NC{background:var(--r50);border-color:var(--r400);color:var(--r800)}
+  .radio-opt.sel-NA{background:var(--gray50);border-color:var(--gray400)}
+  .q-notes{min-height:62px}
+
+  .legend{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px;padding:12px 16px;background:var(--white);border-radius:10px;border:1px solid var(--border)}
+  #results-panel{display:none}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="badge">ISO 9001:2015</div>
+      <div>
+        <h1>Cuestionario de Autoevaluación — Sistema de Gestión de la Calidad</h1>
+        <p>Simulación para cualquier empresa • Cláusulas 4 a 10</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-secondary" onclick="resetAll()">↺ Reiniciar</button>
+      <button class="btn btn-primary" onclick="generateResults()">📋 Ver resultados</button>
+      <button class="btn btn-primary" onclick="window.print()">🖨 Imprimir / PDF</button>
+    </div>
+  </div>
+</div>
+
+<div class="progress-bar">
+  <div style="max-width:900px;margin:0 auto">
+    <div class="progress-track" style="background:rgba(255,255,255,.2);height:6px;border-radius:3px;overflow:hidden">
+      <div class="progress-fill" id="prog-fill" style="width:0%"></div>
+    </div>
+    <div style="text-align:right;margin-top:4px;font-size:12px;color:#b5d4f4" id="prog-label">0 / 40 respondidas</div>
+  </div>
+</div>
+
+<div class="main">
+  <!-- Score Card -->
+  <div class="score-section">
+    <h2 style="font-size:15px;font-weight:600;margin-bottom:8px">Resumen de cumplimiento</h2>
+    <div class="score-grid">
+      <div class="score-metric"><div class="val" id="cnt-c" style="color:var(--g600)">0</div><div style="font-size:11px;color:var(--text2)">Conforme</div></div>
+      <div class="score-metric"><div class="val" id="cnt-p" style="color:var(--a400)">0</div><div style="font-size:11px;color:var(--text2)">Parcialmente</div></div>
+      <div class="score-metric"><div class="val" id="cnt-nc" style="color:var(--r400)">0</div><div style="font-size:11px;color:var(--text2)">No conforme</div></div>
+      <div class="score-metric"><div class="val" id="cnt-na" style="color:var(--gray400)">0</div><div style="font-size:11px;color:var(--text2)">No aplica</div></div>
+    </div>
+    <div id="overall-pct" style="font-size:32px;font-weight:700;margin-top:16px;text-align:center;color:var(--b800)">— %</div>
+  </div>
+
+  <!-- Leyenda -->
+  <div class="legend">
+    <strong>Leyenda:</strong>
+    <div>C — Conforme (evidencia completa)</div>
+    <div>PC — Parcialmente conforme</div>
+    <div>NC — No conforme</div>
+    <div>NA — No aplica</div>
+  </div>
+
+  <!-- Panel de resultados -->
+  <div id="results-panel" class="score-section">
+    <h2>Informe de Resultados</h2>
+    <p id="results-date" style="color:var(--text2);font-size:12px"></p>
+    <div id="results-body"></div>
+  </div>
+
+  <!-- Las 7 secciones se generan automáticamente -->
+</div>
+
+<script>
+// === CONFIGURACIÓN ===
+const TOTAL = 40;
+const state = {};
+const QLABELS = { /* 40 preguntas reales y neutrales */ 
+  1:"¿La organización ha identificado los factores internos y externos que afectan al SGC?",
+  2:"¿Se revisa periódicamente el contexto de la organización?",
+  3:"¿Se han identificado las partes interesadas relevantes y sus requisitos?",
+  4:"¿Está claramente definido y documentado el alcance del SGC?",
+  5:"¿Se han determinado los procesos necesarios para el SGC y sus interacciones?",
+  6:"¿Existen criterios y métodos para asegurar el control de los procesos?",
+  7:"¿La alta dirección demuestra liderazgo y compromiso con el SGC?",
+  8:"¿Se promueve el enfoque al cliente en todos los niveles?",
+  9:"¿Existe una política de calidad documentada, comunicada y entendida?",
+  10:"¿Se asignan responsabilidades y autoridades de forma clara?",
+  11:"¿La política de calidad incluye el compromiso con la mejora continua?",
+  12:"¿Se integra el SGC en los procesos estratégicos de la empresa?",
+  13:"¿Se identifican riesgos y oportunidades que pueden afectar al SGC?",
+  14:"¿Existe un método para evaluar y tratar riesgos y oportunidades?",
+  15:"¿Se establecen objetivos de calidad medibles y coherentes?",
+  16:"¿Se planifican los recursos y plazos necesarios para alcanzar los objetivos?",
+  17:"¿Se realiza seguimiento y revisión de los objetivos de calidad?",
+  18:"¿Se controlan los cambios que afectan al SGC?",
+  19:"¿Se proporcionan los recursos necesarios (humanos, infraestructura, ambiente)?",
+  20:"¿El personal tiene la competencia requerida para sus funciones?",
+  21:"¿Se mantienen registros de capacitación y competencia?",
+  22:"¿El personal es consciente de la política de calidad y sus objetivos?",
+  23:"¿Existe un proceso efectivo de comunicación interna y externa?",
+  24:"¿Se controla adecuadamente la información documentada?",
+  25:"¿Se gestionan correctamente documentos y registros?",
+  26:"¿Se planifican y controlan los procesos operativos?",
+  27:"¿Se determinan y revisan los requisitos de clientes antes de aceptar pedidos?",
+  28:"¿Se controla el diseño y desarrollo de productos/servicios cuando aplica?",
+  29:"¿Se evalúa, selecciona y monitorea a proveedores externos?",
+  30:"¿Se controlan las actividades de producción y prestación del servicio?",
+  31:"¿Se asegura la trazabilidad de los productos cuando es necesario?",
+  32:"¿Se identifican y controlan los productos o servicios no conformes?",
+  33:"¿Se realiza seguimiento, medición y análisis del desempeño del SGC?",
+  34:"¿Se mide la satisfacción del cliente de forma regular?",
+  35:"¿Se realizan auditorías internas planificadas y efectivas?",
+  36:"¿La dirección realiza revisiones periódicas del SGC?",
+  37:"¿Se gestionan las no conformidades de manera sistemática?",
+  38:"¿Se analizan las causas raíz de las no conformidades?",
+  39:"¿Se implementan acciones correctivas y se verifica su eficacia?",
+  40:"¿Se promueve y evidencia la mejora continua del SGC?"
+};
+
+const sections = [
+  {id:"sec4", title:"4. Contexto de la organización", icon:"🌐", count:6, start:1},
+  {id:"sec5", title:"5. Liderazgo", icon:"👔", count:6, start:7},
+  {id:"sec6", title:"6. Planificación", icon:"📋", count:6, start:13},
+  {id:"sec7", title:"7. Soporte", icon:"🛠️", count:7, start:19},
+  {id:"sec8", title:"8. Operación", icon:"⚙️", count:7, start:26},
+  {id:"sec9", title:"9. Evaluación del desempeño", icon:"📊", count:4, start:33},
+  {id:"sec10",title:"10. Mejora", icon:"🔄", count:4, start:37}
+];
+
+// === FUNCIONES ===
+function init() {
+  sections.forEach(sec => {
+    const secHTML = `
+      <div class="section" id="${sec.id}">
+        <div class="section-header" onclick="toggleSection('${sec.id}')">
+          <div class="section-icon" style="background:#e6f1fb">${sec.icon}</div>
+          <div class="section-title">
+            <h2>${sec.title}</h2>
+            <p>Cláusula ${sec.id.replace('sec','')}</p>
+          </div>
+          <span class="section-badge" style="background:var(--b50);color:var(--b800)">${sec.count} preguntas</span>
+          <span class="section-chevron ${sec.id==='sec4'?'open':''}" id="chev-${sec.id}">▼</span>
+        </div>
+        <div class="section-body ${sec.id==='sec4'?'open':''}" id="body-${sec.id}"></div>
+      </div>`;
+    
+    document.querySelector('.main').insertAdjacentHTML('beforeend', secHTML);
+
+    const body = document.getElementById(`body-${sec.id}`);
+    for (let i = sec.start; i < sec.start + sec.count; i++) {
+      state[i] = {val: null, note: ''};
+
+      const card = document.createElement('div');
+      card.className = 'question-card';
+      card.id = `qc-${i}`;
+      card.innerHTML = `
+        <div class="q-header">
+          <span class="q-num">${sec.id.replace('sec','')}.${String(i-sec.start+1).padStart(2,'0')}</span>
+          <div class="q-text">${QLABELS[i]}</div>
+        </div>
+        <div class="q-body">
+          <div class="radio-group" id="rg-${i}"></div>
+          <textarea class="q-notes" id="note-${i}" placeholder="Observaciones, evidencias encontradas o acciones correctivas..."></textarea>
+        </div>`;
+      body.appendChild(card);
+
+      buildRadios(i);
+      document.getElementById(`note-${i}`).addEventListener('input', e => state[i].note = e.target.value);
+    }
+  });
+}
+
+function buildRadios(n) {
+  const rg = document.getElementById(`rg-${n}`);
+  const options = [
+    {v:'C', l:'C — Conforme'},
+    {v:'P', l:'PC — Parcialmente conforme'},
+    {v:'NC', l:'NC — No conforme'},
+    {v:'NA', l:'NA — No aplica'}
+  ];
+  options.forEach(opt => {
+    const lbl = document.createElement('label');
+    lbl.className = 'radio-opt';
+    lbl.innerHTML = `<input type="radio" name="q${n}" value="${opt.v}"> ${opt.l}`;
+    lbl.addEventListener('click', () => selectOpt(n, opt.v, rg));
+    rg.appendChild(lbl);
+  });
+}
+
+function selectOpt(n, val, rg) {
+  state[n].val = val;
+  rg.querySelectorAll('.radio-opt').forEach(l => l.classList.remove('sel-C','sel-P','sel-NC','sel-NA'));
+  const selected = Array.from(rg.children).find(l => l.querySelector('input').value === val);
+  if (selected) selected.classList.add(`sel-${val}`);
+
+  const card = document.getElementById(`qc-${n}`);
+  card.classList.remove('status-c','status-p','status-nc','status-na');
+  card.classList.add(val === 'C' ? 'status-c' : val === 'P' ? 'status-p' : val === 'NC' ? 'status-nc' : 'status-na');
+
+  updateScore();
+}
+
+function updateScore() {
+  let c=0, p=0, nc=0, na=0, answered=0;
+  for (let i=1; i<=TOTAL; i++) {
+    if (state[i]?.val) {
+      answered++;
+      if (state[i].val === 'C') c++;
+      else if (state[i].val === 'P') p++;
+      else if (state[i].val === 'NC') nc++;
+      else if (state[i].val === 'NA') na++;
+    }
+  }
+
+  document.getElementById('cnt-c').textContent = c;
+  document.getElementById('cnt-p').textContent = p;
+  document.getElementById('cnt-nc').textContent = nc;
+  document.getElementById('cnt-na').textContent = na;
+
+  const prog = (answered / TOTAL * 100).toFixed(0);
+  document.getElementById('prog-fill').style.width = prog + '%';
+  document.getElementById('prog-label').textContent = `${answered} / ${TOTAL} respondidas`;
+
+  const evaluated = answered - na;
+  const pct = evaluated > 0 ? Math.round((c / evaluated) * 100) : 0;
+  document.getElementById('overall-pct').textContent = pct + ' %';
+  document.getElementById('overall-pct').style.color = pct >= 75 ? 'var(--g600)' : pct >= 50 ? 'var(--a400)' : 'var(--r400)';
+}
+
+function toggleSection(id) {
+  const body = document.getElementById('body-'+id);
+  const chev = document.getElementById('chev-'+id);
+  body.classList.toggle('open');
+  chev.classList.toggle('open');
+}
+
+function generateResults() {
+  const panel = document.getElementById('results-panel');
+  const body = document.getElementById('results-body');
+  document.getElementById('results-date').textContent = 'Generado el ' + new Date().toLocaleDateString('es-ES');
+
+  let html = '';
+  ['NC','P','C'].forEach(status => {
+    const list = Object.keys(state).filter(i => state[i].val === status);
+    if (list.length === 0) return;
+    const title = status==='NC' ? '❌ No conformidades' : status==='P' ? '⚠️ Parcialmente conformes' : '✅ Conformidades';
+    const color = status==='NC' ? 'var(--r800)' : status==='P' ? 'var(--a800)' : 'var(--g600)';
+    html += `<h3 style="color:${color};margin:20px 0 10px">${title} (${list.length})</h3>`;
+    list.forEach(i => {
+      const note = state[i].note ? `<div style="font-size:12px;color:#666;margin-top:4px">Nota: ${state[i].note}</div>` : '';
+      html += `<div style="padding:10px;background:#f9f9f9;border-left:4px solid ${status==='NC'?'#e24b4a':status==='P'?'#ef9f27':'#639922'};margin-bottom:8px">
+        <strong>Pregunta ${i}</strong><br>${QLABELS[i]}${note}
+      </div>`;
+    });
+  });
+
+  body.innerHTML = html || '<p style="text-align:center;padding:40px;color:#888">Responde las preguntas para ver el informe.</p>';
+  panel.style.display = 'block';
+  panel.scrollIntoView({behavior:'smooth'});
+}
+
+function resetAll() {
+  if (confirm('¿Deseas reiniciar toda la simulación?')) location.reload();
+}
+
+init();
+</script>
+</body>
+</html>
